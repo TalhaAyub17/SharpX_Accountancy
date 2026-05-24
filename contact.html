@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Generation Form - SharpX Accountancy</title>
+
+<!-- Google Font (Montserrat Light style) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+  }
+
+  body {
+    background: #f5f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 520px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(59,120,168,0.15);
+    border: 1px solid #e6eef5;
+  }
+
+  h2 {
+    color: #3B78A8;
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .step {
+    display: none;
+  }
+
+  .step.active {
+    display: block;
+  }
+
+  label.option {
+    display: block;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border: 1px solid #d7e6f2;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #3B78A8;
+    transition: 0.3s;
+  }
+
+  label.option:hover {
+    background: #f0f7fc;
+    border-color: #3B78A8;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 10px;
+    accent-color: #3B78A8;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #d7e6f2;
+    border-radius: 10px;
+    outline: none;
+    color: #3B78A8;
+  }
+
+  input:focus {
+    border-color: #3B78A8;
+    box-shadow: 0 0 0 3px rgba(59,120,168,0.15);
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  button {
+    background: #3B78A8;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 400;
+  }
+
+  button:hover {
+    background: #2f6590;
+  }
+
+  .progress {
+    height: 6px;
+    width: 100%;
+    background: #e8f1f8;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    overflow: hidden;
+  }
+
+  .bar {
+    height: 100%;
+    width: 20%;
+    background: #3B78A8;
+    transition: 0.3s;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="progress">
+  <div class="bar" id="bar"></div>
+</div>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+
+  <!-- Web3Forms Integration Settings -->
+  <input type="hidden" name="access_key" value="a24472c0-46aa-4830-95df-3df0b748cb43">
+  <input type="hidden" name="from_name" value="SharpX Accountancy Lead Form">
+  <input type="hidden" name="subject" value="New Accountancy Lead Generation Submission">
+  <input type="hidden" name="replyto" value="info@sharpxaccountancy.co.uk">
+  <input type="hidden" name="redirect" value="https://sharpxaccountancy.co.uk">
+
+  <!-- STEP 1 -->
+  <div class="step active">
+    <h2>How many directors in your company?</h2>
+
+    <label class="option"><input type="radio" name="Directors" value="One" required> One</label>
+    <label class="option"><input type="radio" name="Directors" value="Two"> Two</label>
+    <label class="option"><input type="radio" name="Directors" value="Three"> Three</label>
+    <label class="option"><input type="radio" name="Directors" value="More than 3"> More than 3</label>
+
+    <div class="buttons">
+      <div></div>
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <h2>Type of your company</h2>
+
+    <label class="option"><input type="radio" name="Company Type" value="Limited Company" required> Limited Company</label>
+    <label class="option"><input type="radio" name="Company Type" value="Sole Trader"> Sole Trader</label>
+    <label class="option"><input type="radio" name="Company Type" value="Partnership"> Partnership</label>
+    <label class="option"><input type="radio" name="Company Type" value="Freelancer"> Freelancer</label>
+    <label class="option"><input type="radio" name="Company Type" value="Start-Up"> Start-Up</label>
+
+    <div class="buttons">
+      <button type="button" onclick="prevStep()">Back</button>
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <h2>Your annual turnover</h2>
+
+    <label class="option"><input type="radio" name="Annual Turnover" value="Less than 50,000" required> Less than 50,000</label>
+    <label class="option"><input type="radio" name="Annual Turnover" value="50,000 to 70,000"> 50,000 to 70,000</label>
+    <label class="option"><input type="radio" name="Annual Turnover" value="70,000 to 120,000"> 70,000 to 120,000</label>
+    <label class="option"><input type="radio" name="Annual Turnover" value="More than 120,000"> More than 120,000</label>
+
+    <div class="buttons">
+      <button type="button" onclick="prevStep()">Back</button>
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <h2>Services you are interested in</h2>
+
+    <label class="option"><input type="checkbox" name="Services[]" value="Bookkeeping"> Bookkeeping</label>
+    <label class="option"><input type="checkbox" name="Services[]" value="Accounts"> Accounts</label>
+    <label class="option"><input type="checkbox" name="Services[]" value="Tax"> Tax</label>
+    <label class="option"><input type="checkbox" name="Services[]" value="VAT"> VAT</label>
+    <label class="option"><input type="checkbox" name="Services[]" value="Payroll"> Payroll</label>
+    <label class="option"><input type="checkbox" name="Services[]" value="Advisory"> Advisory</label>
+
+    <div class="buttons">
+      <button type="button" onclick="prevStep()">Back</button>
+      <button type="button" onclick="nextStep()">Next</button>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <h2>Contact Us</h2>
+
+    <input type="text" name="Full Name" placeholder="Full Name" required>
+    <input type="text" name="Company Name" placeholder="Company Name" required>
+    <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+    <input type="email" name="Email" placeholder="Email Address" required>
+
+    <div class="buttons">
+      <button type="button" onclick="prevStep()">Back</button>
+      <button type="submit">Submit</button>
+    </div>
+  </div>
+
+</form>
+</div>
+
+<script>
+let currentStep = 0;
+const steps = document.querySelectorAll(".step");
+const bar = document.getElementById("bar");
+
+function showStep(step){
+  steps.forEach((s,i)=>{
+    s.classList.toggle("active", i === step);
+  });
+
+  bar.style.width = ((step + 1) / steps.length) * 100 + "%";
+}
+
+function validateCurrentStep() {
+  const activeStep = steps[currentStep];
+  const requiredInputs = activeStep.querySelectorAll("input[required], input[type='radio']");
+  
+  // If the step has radio buttons, check if at least one is selected
+  if (requiredInputs.length > 0 && requiredInputs[0].type === "radio") {
+    const name = requiredInputs[0].name;
+    const checked = activeStep.querySelector(`input[name="${name}"]:checked`);
+    if (!checked) {
+      alert("Please select an option to proceed.");
+      return false;
+    }
+  }
+  
+  // Validate basic text fields on the last step
+  const textInputs = activeStep.querySelectorAll("input[type='text'], input[type='email'], input[type='tel']");
+  for (let input of textInputs) {
+    if (input.hasAttribute("required") && !input.value.trim()) {
+      alert("Please fill out all fields.");
+      input.focus();
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+function nextStep(){
+  if (validateCurrentStep()) {
+    if(currentStep < steps.length - 1){
+      currentStep++;
+      showStep(currentStep);
+    }
+  }
+}
+
+function prevStep(){
+  if(currentStep > 0){
+    currentStep--;
+    showStep(currentStep);
+  }
+}
+</script>
+
+</body>
+</html>

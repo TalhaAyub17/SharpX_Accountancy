@@ -62,13 +62,21 @@
               <br>
             </p>
         </div>        
-      </div>
+ <div class="tm-next tm-intro-next text-center" style="display: flex; justify-content: center; width: 100%; margin-top: 20px;">
+  <button type="button" 
+          onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });"
+          onmouseenter="this.style.backgroundColor='#2f6590';" 
+          onmouseleave="this.style.backgroundColor='#3B78A8'; this.style.transform='scale(1)';" 
+          onmousedown="this.style.transform='scale(0.96)';" 
+          onmouseup="this.style.transform='scale(1)';"
+          style="display: inline-flex; align-items: center; justify-content: center; background-color: #3B78A8; color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 20px; padding: 14px 32px; border-radius: 4px; border: none; outline: none; cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease;">
+    Book Now
+  </button>
+</div>
 
-          <div class="tm-next tm-intro-next">
-        <a href="#AboutUs" class="text-center tm-down-arrow-link">
-          <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
-        </a>
-      </div>      
+
+
+      
     </section>
 
     <section id="AboutUs" class="tm-section-pad-top">
@@ -266,7 +274,7 @@ With a client-focused approach and professional expertise, our team is always av
       </div>
     </section>
 <!-- Contact -->
-<section id="contact" class="tm-section-pad-top tm-parallax-2">
+<section id="contact" class="tm-section-pad-top tm-parallax-2" style="padding-top: 80px; padding-bottom: 120px; min-height: auto; height: auto;">
 
   <div class="container tm-container-contact">
     
@@ -274,79 +282,92 @@ With a client-focused approach and professional expertise, our team is always av
         
         <div class="text-center col-12">
             <h2 class="tm-section-title mb-4">Contact Us</h2>
-            <p class="mb-5">
-             Have a question or want to work together? <br> Drop us a line below, and our team will get back to you within 24 hours.</p><br>
+            <p class="mb-4">
+             Have a question or want to work together? <br> Click on the button below and our team will get back to you within 24 hours.
+            </p>
+            
+            <button type="button" 
+                    onclick="window.location.href='contact.html';"
+                    onmouseenter="this.style.backgroundColor='#2f6590';" 
+                    onmouseleave="this.style.backgroundColor='#3B78A8'; this.style.transform='scale(1)';" 
+                    onmousedown="this.style.transform='scale(0.96)';" 
+                    onmouseup="this.style.transform='scale(1)';"
+                    style="display: inline-flex; align-items: center; justify-content: center; background-color: #3B78A8; color: #ffffff; font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 20px; padding: 18px 56px; border-radius: 4px; border: none; outline: none; cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; margin-top: 10px;">
+              Book Now
+            </button>
         </div>
         
-        <div class="col-sm-12 col-md-6">
-          <!-- Added id and removed action/method to handle via JS -->
-          <form id="tm-contact-form">
-            <!-- Web3Forms Access Key Field (Replace YOUR_ACCESS_KEY_HERE later) -->
-            <input type="hidden" name="access_key" value="faa355b8-673e-4189-b8de-37e8b9719f9e">
-            
-            <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
-            <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
-            <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
-            
-            <!-- Result container for success/error messages -->
-            <div id="form-result"></div>
-            
-            <button type="submit" class="btn tm-btn-submit">Submit</button>
-          </form>
-        </div>
-        
-        <div class="col-sm-12 col-md-6">
-
-            
-            
-            <div class="contact-item">
-              <a rel="nofollow" href="mailto:info@sharpxaccountancy.co.uk" class="item-link">
-                  <i class="far fa-2x fa-envelope mr-4"></i>
-                  <span class="mb-0">info@sharpxaccountancy.co.uk</span>
-              </a>              
-            </div>
-            
-            <div class="contact-item">
-              <a rel="nofollow" href="https://www.google.com/maps/place/199a+Oldham+Rd,+Failsworth,+Manchester+M35+0BX,+UK/@53.506676,-2.1704873,17z/data=!3m1!4b1!4m6!3m5!1s0x487bb1378f25e339:0x467f8494140d26c2!8m2!3d53.506676!4d-2.1679124!16s%2Fg%2F11lp2_vx2r?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" class="item-link">
-                  <i class="fas fa-2x fa-map-marker-alt mr-4"></i>
-                  <span class="mb-0">Our Location</span>
-              </a>              
-            </div>
-            
-            <div class="contact-item">
-              <a rel="nofollow" href="tel:+447873389958" class="item-link">
-                  <i class="fas fa-2x fa-phone-square mr-4"></i>
-                  <span class="mb-0">+44 7873 389958</span>
-              </a>              
-            </div>
-            <div class="contact-item">
-              <a href="https://www.linkedin.com/company/sharpx-accountancy-outsourcing/" class="item-link" target="_blank" rel="nofollow noopener noreferrer">
-                  <i class="fab fa-2x fa-linkedin mr-4"></i>
-                  <span class="mb-0">LinkedIn</span>
-              </a>
-            </div>
-            <div class="contact-item">
-              <a href="https://www.instagram.com/sharpxaccountancy?utm_source=qr&igsh=Mm0xczRpaTZvbHU4" class="item-link" target="_blank" rel="nofollow noopener noreferrer">
-                  <i class="fab fa-2x fa-instagram mr-4"></i>
-                  <span class="mb-0">Instagram</span>
-              </a>
-            </div>
-            <div class="contact-item">&nbsp;</div>
-        
-        </div>
-        
-    </div><!-- row ending -->
-    
+    </div>
   </div>
 
-  <footer class="text-center small tm-footer">
-      <p class="mb-0">
-      Copyright © 2035 by SharpX Accountancy Services Limited.
-      
-       <a rel="nofollow" href="https://www.tooplate.com" title="HTML templates"></a></p>
-    </footer>
-
 </section>
+
+<footer class="tm-footer" style="background-color: #2E7AB8; color: #fff; padding: 20px 0 0 0; margin: 0; position: relative; z-index: 10; width: 100%; display: block;">
+    <!-- Main Footer Content -->
+    <div class="container" style="padding: 40px 0;">
+      <div class="row">
+        <!-- Company Info -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <div style="margin-bottom: 20px;">
+            <h5 style="font-size: 18px; font-weight: 600; margin-bottom: 15px; color: #fff;">SharpX Accountancy</h5>
+            <p style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85);">Digitalized Solutions For A Smarter Tomorrow. Expert accounting, tax, and advisory services tailored to your business needs.</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <h5 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #fff;">Quick Links</h5>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 10px;"><a href="#infinite" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; transition: color 0.3s;">Home</a></li>
+            <li style="margin-bottom: 10px;"><a href="#AboutUs" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; transition: color 0.3s;">About Us</a></li>
+            <li style="margin-bottom: 10px;"><a href="#gallery" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; transition: color 0.3s;">Experience</a></li>
+            <li style="margin-bottom: 10px;"><a href="#contact" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; transition: color 0.3s;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <h5 style="font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #fff;">Get In Touch</h5>
+          <div style="margin-bottom: 15px;">
+            <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.85);">
+              <i class="far fa-envelope" style="margin-right: 10px; color: #fff;"></i>
+              <a href="mailto:info@sharpxaccountancy.co.uk" style="color: rgba(255,255,255,0.85); text-decoration: none;">info@sharpxaccountancy.co.uk</a>
+            </p>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.85);">
+              <i class="fas fa-phone" style="margin-right: 10px; color: #fff;"></i>
+              <a href="tel:+447873389958" style="color: rgba(255,255,255,0.85); text-decoration: none;">+44 7873 389958</a>
+            </p>
+          </div>
+          <div>
+            <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.85);">
+              <i class="fas fa-map-marker-alt" style="margin-right: 10px; color: #fff;"></i>
+              <a href="https://google.com" style="color: rgba(255,255,255,0.85); text-decoration: none;">Our Location</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links Section -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 40px; padding-top: 30px;">
+        <div style="text-align: center;">
+          <h6 style="font-size: 14px; font-weight: 600; margin-bottom: 20px; color: #fff;">Follow Us</h6>
+          <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="https://www.linkedin.com/company/sharpx-accountancy-outsourcing/" class="item-link" target="_blank" rel="nofollow noopener noreferrer" style="color: #fff; font-size: 20px; transition: color 0.3s;"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/sharpxaccountancy?utm_source=qr&igsh=Mm0xczRpaTZvbHU4" class="item-link" target="_blank" rel="nofollow noopener noreferrer" style="color: #fff; font-size: 20px; transition: color 0.3s;"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div style="background-color: #1E5A8E; border-top: 1px solid rgba(255,255,255,0.1); padding: 20px 0; text-align: center; margin-top: 30px;">
+      <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9);">
+        Copyright © 2035 by SharpX Accountancy Services Limited. All rights reserved.
+      </p>
+    </div>
+  </footer>
 
     
     <script src="js/jquery-1.9.1.min.js"></script>     

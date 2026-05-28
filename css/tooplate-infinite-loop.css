@@ -390,7 +390,6 @@ blockquote {
 }
 
 /* Hover Effect */
-/* Common style */
 .grid figure {
   position: relative;
   float: left;
@@ -431,8 +430,6 @@ blockquote {
   height: 100%;
 }
 
-/* Anchor will cover the whole item by default */
-/* For some effects it will show as a button */
 .grid figure figcaption > a {
   z-index: 1000;
   text-indent: 200%;
@@ -461,10 +458,7 @@ blockquote {
   font-size: 68.5%;
 }
 
-/*---------------*/
-/***** Honey *****/
-/*---------------*/
-
+/* Honey Effect */
 figure.effect-honey {
   background: #4a3753;
   max-width: 220px;
@@ -528,10 +522,9 @@ figure.effect-honey:hover h2 i {
 
 .tm-container-gallery {
 	padding-top: 30px;
-	}
+}
 
 /* Contact */
-
 #contact {
   color: white;
   background-color: #001828;
@@ -605,18 +598,15 @@ figure.effect-honey:hover h2 i {
 }
 
 ::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
-  opacity: 1; /* Firefox */
+  opacity: 1;
 }
 
 :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   color: white;
 }
 
 ::-ms-input-placeholder {
-  /* Microsoft Edge */
   color: white;
 }
 
@@ -697,7 +687,6 @@ p {
 }
 
 @media (max-width: 767px) {
-
   .navbar-nav {
     max-width: 200px;
     text-align: right;
@@ -732,5 +721,83 @@ p {
 
   .tm-gallery-item {
     margin: 0;
+  }
+}
+
+/* ==========================================================================
+   iPhone Pro Max Display Optimizations (Aspect Ratio ~19.5:9 Media Breaks)
+   Ensures text scaling limits and drops faulty fixed footer spacing parameters
+   ========================================================================== */
+@media only screen and (max-width: 440px) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Notch clear spacing variables for floating navigation columns */
+  .tm-navbar {
+    padding-top: calc(12px + env(safe-area-inset-top));
+    padding-bottom: 12px;
+  }
+
+  .navbar-brand img {
+    transform: scale(1.1);
+  }
+
+  /* Scale down oversized landing banners to fit tight mobile constraints gracefully */
+  .tm-hero-title {
+    font-size: 2.15rem !important;
+    line-height: 1.35;
+    padding: 0 12px;
+  }
+
+  .tm-hero-subtitle {
+    font-size: 1.1rem !important;
+    padding: 0 15px;
+  }
+
+  .tm-hero-text-container-inner {
+    margin-top: -35px;
+  }
+  
+  .tm-intro-next {
+    bottom: calc(45px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .tm-intro-next button {
+    font-size: 16px !important;
+    padding: 12px 24px !important;
+    width: 88%;
+  }
+
+  /* Prevent row squeezing inside information cards */
+  .tm-section-pad-top {
+    padding-top: 60px;
+    padding-bottom: 35px;
+  }
+
+  .tm-section-title {
+    font-size: 2rem !important;
+  }
+
+  /* Clears the fixed left padding that forced text blocks off screen on narrow columns */
+  .tm-footer-contact-col {
+    padding-left: 15px !important; 
+    margin-top: 15px;
+  }
+
+  .tm-footer {
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .tm-gallery-container {
+    padding-top: 35px;
+    padding-bottom: 75px;
+    max-width: 295px !important;
+  }
+
+  figure.effect-honey {
+    max-width: 100% !important;
+    margin: 0 auto;
   }
 }

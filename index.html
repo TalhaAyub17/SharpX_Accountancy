@@ -135,15 +135,124 @@
     </section>
     
     <section id="testimonials" class="tm-section-pad-top tm-parallax-2">      
+      <style>
+        /* Force carousel items to stretch evenly to match the tallest sibling card */
+        #testimonials .slick-track {
+          display: flex !important;
+          align-items: stretch !important;
+        }
+        #testimonials .slick-slide {
+          height: auto !important;
+          display: flex !important;
+          justify-content: center;
+        }
+        /* Card Structure Layout */
+        .tm-testimonial-card {
+          background: rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 8px;
+          padding: 20px 20px 18px 20px; /* Reduced vertical padding to make it smaller in height */
+          margin: 0 12px 20px 12px; /* Side gaps between sliding blocks */
+          display: flex !important;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 100%;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(4px);
+          -webkit-backdrop-filter: blur(4px);
+        }
+        /* Quote Text Properties */
+        .tm-testimonial-quote {
+          font-size: 14px !important; /* Slightly smaller text size to reduce card height expansion */
+          line-height: 1.5 !important;
+          color: #ffffff !important;
+          font-style: italic;
+          margin-bottom: 14px; /* Reduced bottom spacing */
+          text-align: center;
+          font-weight: 300;
+        }
+        /* Author Figcaption Separation */
+        .tm-testimonial-author {
+          font-size: 15px !important;
+          font-weight: 600 !important;
+          color: #ffffff !important;
+          text-align: center;
+          margin-top: auto; /* Always anchors name precisely along the card floor */
+          letter-spacing: 0.5px;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          padding-top: 8px; /* Reduced padding above the author name */
+        }
+        /* Fix default Slick Carousel dot indicators sizing positioning */
+        #testimonials .slick-dots {
+          bottom: -20px;
+        }
+        #testimonials .slick-dots li button:before {
+          color: #ffffff !important;
+          opacity: 0.4;
+          font-size: 10px;
+        }
+        #testimonials .slick-dots li.slick-active button:before {
+          color: #ffffff !important;
+          opacity: 1;
+        }
+        /* 1. Fix for desktop/tablet viewports where content outgrows the image height */
+#testimonials {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  /* Gives the container a solid dark fallback so it doesn't flash white/gray if adjusting */
+  background-color: #0c2540 !important; 
+}
+
+/* 2. Overrides for responsive/smaller screens where parallax calculations fail */
+@media (max-width: 1200px) {
+  #testimonials {
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+}
+      </style>
+
       <div class="container tm-testimonials-content">
         <div class="row">
           <div class="col-lg-12 tm-content-box">
             <h2 class="text-white text-center mb-4 tm-section-title">Our Clients</h2>
-            <p class="mx-auto tm-section-desc text-center">
-                Our clients share their experiences working with SharpX. Their words reflect our commitment to excellence and the value we bring to their financial operations.</p>
-            <div class="mx-auto tm-gallery-container tm-gallery-container-2">
+            <p class="mx-auto tm-section-desc text-center" style="max-width: 750px; margin-bottom: 40px;">
+                Our clients share their experiences working with SharpX. Their words reflect our commitment to excellence and the value we bring to their financial operations.
+            </p>
+            
+            <div class="mx-auto tm-gallery-container tm-gallery-container-2" style="max-width: 100%;">
               <div class="tm-testimonials-carousel">
+                
+                <div class="tm-testimonial-item d-flex">
+                  <div class="tm-testimonial-card">
+                    <p class="tm-testimonial-quote">"I contacted their director, Mr Zahid, regarding my annual accounts and tax return, and everything was completed within the week. The service was professional, efficient, and easy to deal with throughout."</p>
+                    <div class="tm-testimonial-author">Henry Smith</div>
+                  </div>
                 </div>
+
+                <div class="tm-testimonial-item d-flex">
+                  <div class="tm-testimonial-card">
+                    <p class="tm-testimonial-quote">"SharpX Accountancy have been extremely professional in handling my business accounts. From bookkeeping through to submissions, everything has been managed smoothly and promptly. Communication has always been clear and helpful."</p>
+                    <div class="tm-testimonial-author">Carl Richardson</div>
+                  </div>
+                </div>
+
+                <div class="tm-testimonial-item d-flex">
+                  <div class="tm-testimonial-card">
+                    <p class="tm-testimonial-quote">"I had a very positive experience speaking with their director and tax adviser, Mr Haider. They took the time to explain everything clearly and provided valuable advice regarding tax matters. I would happily recommend their services."</p>
+                    <div class="tm-testimonial-author">Nina Hayes</div>
+                  </div>
+                </div>
+
+                <div class="tm-testimonial-item d-flex">
+                  <div class="tm-testimonial-card">
+                    <p class="tm-testimonial-quote">"I want my annual accounts and tax return just got message on the same day and got everything done within 2 days. Recommended."</p>
+                    <div class="tm-testimonial-author">David</div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>

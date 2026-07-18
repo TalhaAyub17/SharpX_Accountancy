@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="img/Logo_NoBackground_Blue.png" />
+    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="slick/slick.css" />
+    <link rel="stylesheet" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="img/Logo_NoBackground_Blue.png" />
+    <style>
+      :root {
+        --ink: #0a3a70;
+        --ink-hover: #084c95;
+        --muted: #6d7a89;
+        --line: gray;
+        --page: #f8fbff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        background-color: #ffffff !important;
+      }
+      .tm-navbar {
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Nunito Sans", sans-serif;
+      }
+      .page {
+        min-height: calc(100vh - 170px);
+        padding: 64px 20px 8px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: #ffffff;
+      }
+      .contact-card {
+        width: min(1320px, 100%);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 28px;
+        margin-top: 0;
+        position: relative;
+      }
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 50%;
+        width: 1px;
+        transform: translateX(-50%);
+        background: linear-gradient(
+          to bottom,
+          rgba(10, 58, 112, 0) 0%,
+          rgba(10, 58, 112, 0.18) 20%,
+          rgba(10, 58, 112, 0.18) 80%,
+          rgba(10, 58, 112, 0) 100%
+        );
+        pointer-events: none;
+      }
+      .form-panel,
+      .lead-form-panel {
+        background: #fff;
+        border: none;
+        border-radius: 22px;
+        box-shadow: none;
+      }
+      .form-panel {
+        padding: 44px 36px 30px;
+      }
+      h1,
+      h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: 25px;
+        font-weight: 600;
+      }
+      form {
+        margin-top: 20px;
+      }
+      .field-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 28px;
+      }
+      .field {
+        position: relative;
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        outline: 0;
+        color: #555;
+        font:
+          15px "Nunito Sans",
+          sans-serif;
+        background: #fff;
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      input {
+        height: 42px;
+        padding: 0 13px;
+      }
+      textarea {
+        height: 70px;
+        resize: vertical;
+        padding: 11px 13px;
+        line-height: 1.5;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: #0a3a70;
+        box-shadow: 0 0 0 3px rgba(10, 58, 112, 0.1);
+      }
+      .message {
+        margin-top: 20px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 11px 22px;
+        border: 0;
+        border-radius: 9px;
+        background: var(--ink);
+        color: #fff;
+        font:
+          600 15px "Nunito Sans",
+          sans-serif;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          transform 0.1s ease;
+      }
+      button:hover {
+        background: var(--ink-hover);
+        transform: translateY(-1px);
+      }
+      .lead-form-panel {
+        min-height: 500px;
+        overflow: hidden;
+      }
+      .lead-form-panel iframe {
+        display: block;
+        width: 100%;
+        height: 500px;
+        min-height: 100%;
+        border: 0;
+      }
+      .form-panel form > button {
+        margin-top: 70px;
+      }
+      .tm-footer .container {
+        padding: 10px 0 8px !important;
+      }
+      footer.tm-footer {
+        padding: 6px 0 0 !important;
+        box-shadow: none !important;
+      }
+      .tm-footer h5 {
+        font-size: 15px !important;
+        margin-bottom: 2px !important;
+      }
+      .tm-footer h6 {
+        font-size: 12px !important;
+        margin-bottom: 4px !important;
+      }
+      .tm-footer p {
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+      }
+      .tm-footer .mb-4 {
+        margin-bottom: 8px !important;
+      }
+      .tm-footer [style*="margin-top: 25px"] {
+        margin-top: 10px !important;
+        padding-top: 8px !important;
+      }
+      .tm-footer [style*="gap: 20px"] {
+        gap: 12px !important;
+      }
+      @media (max-width: 640px) {
+        .page {
+          min-height: auto;
+          padding: 72px 16px 28px;
+          align-items: center;
+        }
+        .contact-card {
+          grid-template-columns: 1fr;
+        }
+        .contact-card::before {
+          display: none;
+        }
+        .form-panel {
+          padding: 32px 24px;
+        }
+        .field-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .message {
+          margin-top: 24px;
+        }
+        .form-panel form > button {
+          margin-top: 20px;
+        }
+        .lead-form-panel,
+        .lead-form-panel iframe {
+          min-height: 600px;
+          height: 600px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md tm-navbar scroll" id="tmNav">
+      <div class="container px-4 px-md-3">
+        <a href="index.html" class="navbar-brand">
+          <img src="img/Logo_NoBackground.png" alt="SharpX Accountancy logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#contactNavbarContent" aria-controls="contactNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars navbar-toggler-icon"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="contactNavbarContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html#AboutUs">About Us</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link tm-nav-link dropdown-toggle" href="#" id="contactServicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
+              <div class="dropdown-menu" aria-labelledby="contactServicesDropdown">
+                <a class="dropdown-item" href="details/bookkeeping.html"><i class="fas fa-file-invoice"></i> Bookkeeping, VAT &amp; CIS Returns</a>
+                <a class="dropdown-item" href="details/selfAssessment.html"><i class="fas fa-file-invoice-dollar"></i> Self-Assessment</a>
+                <a class="dropdown-item" href="details/accounts.html"><i class="fas fa-calculator"></i> Accounts, Corporation Tax &amp; Payroll</a>
+                <a class="dropdown-item" href="details/advisory.html"><i class="fas fa-users"></i> Advisory</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html#testimonials">Our Clients</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html#gallery">Experience</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link current" href="contactForm.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="team.html">Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="page">
+      <section class="contact-card" aria-label="Contact us">
+        <div class="form-panel">
+          <h1>Send us a message</h1>
+          <form action="#" method="post">
+            <div class="field-grid">
+              <div class="field">
+                <label for="name">Name *</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="email">Email *</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Phone #"
+                />
+              </div>
+              <div class="field">
+                <label for="company">Company</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  placeholder="Company name"
+                />
+              </div>
+            </div>
+            <div class="field message">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" style="margin-top: 45px;">SEND MESSAGE</button>
+          </form>
+        </div>
+        <section class="lead-form-panel" aria-label="Accountancy lead form">
+          <iframe
+            id="leadFormIframe"
+            src="contact.html?v=3"
+            title="SharpX Accountancy lead generation form"
+          ></iframe>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      window.addEventListener("message", function (event) {
+        if (
+          event.data &&
+          event.data.source === "sharpxLeadForm" &&
+          typeof event.data.height === "number"
+        ) {
+          var iframe = document.getElementById("leadFormIframe");
+          if (iframe) {
+            iframe.style.height = event.data.height + "px";
+          }
+        }
+      });
+    </script>
+
+    <footer
+      class="tm-footer"
+      style="
+        background-color: #2e7ab8;
+        color: #fff;
+        padding: 20px 0 0 0;
+        margin: 0;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        display: block;
+        box-shadow: 0 50vh 0 50vh #1e5a8e;
+      "
+    >
+      <style>
+        html,
+        body {
+          margin: 0 !important;
+          padding: 0 !important;
+          background-color: #ffffff !important;
+          height: 100%;
+        }
+      </style>
+
+      <div class="container" style="padding: 40px 0 20px 0">
+        <div class="row justify-content-center">
+          <div class="col-11 col-md-5 col-lg-5 mb-4 mb-md-0 mx-auto text-left">
+            <div style="margin-bottom: 20px">
+              <h5
+                style="
+                  font-size: 18px;
+                  font-weight: 600;
+                  margin-bottom: 4px;
+                  color: #fff;
+                "
+              >
+                SharpX Accountancy Services
+              </h5>
+
+              <p
+                style="
+                  font-size: 15px;
+                  line-height: 1.4;
+                  color: rgba(255, 255, 255, 0.85);
+                  margin-top: 0;
+                  margin-bottom: 14px;
+                "
+              >
+                Digitalized Solutions For A Smarter Tomorrow.
+              </p>
+
+              <p
+                style="
+                  font-size: 14px;
+                  line-height: 1.6;
+                  color: rgba(255, 255, 255, 0.85);
+                  margin-top: 14px;
+                  margin-bottom: 0;
+                "
+              >
+                Expert accounting, tax, and advisory services tailored to your
+                business needs.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-11 col-md-5 col-lg-4 pl-md-4 pl-lg-5 mx-auto text-left"
+          >
+            <h5
+              style="
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 12px;
+                color: #fff;
+              "
+            >
+              Get In Touch
+            </h5>
+            <div style="margin-bottom: 8px">
+              <p
+                style="
+                  margin: 0;
+                  font-size: 14px;
+                  color: rgba(255, 255, 255, 0.85);
+                "
+              >
+                <i
+                  class="far fa-envelope"
+                  style="margin-right: 10px; color: #fff; width: 16px"
+                ></i>
+                <a
+                  href="mailto:info@sharpxaccountancy.co.uk"
+                  style="
+                    color: rgba(255, 255, 255, 0.85);
+                    text-decoration: none;
+                  "
+                  >info@sharpxaccountancy.co.uk</a
+                >
+              </p>
+            </div>
+            <div style="margin-bottom: 8px">
+              <p
+                style="
+                  margin: 0;
+                  font-size: 14px;
+                  color: rgba(255, 255, 255, 0.85);
+                "
+              >
+                <i
+                  class="fas fa-phone"
+                  style="margin-right: 10px; color: #fff; width: 16px"
+                ></i>
+                <a
+                  href="tel:+447873389958"
+                  style="
+                    color: rgba(255, 255, 255, 0.85);
+                    text-decoration: none;
+                  "
+                  >+44 7873 389958</a
+                >
+              </p>
+            </div>
+            <div>
+              <p
+                style="
+                  margin: 0;
+                  font-size: 14px;
+                  color: rgba(255, 255, 255, 0.85);
+                "
+              >
+                <i
+                  class="fas fa-map-marker-alt"
+                  style="margin-right: 10px; color: #fff; width: 16px"
+                ></i>
+                <a
+                  href="#"
+                  style="
+                    color: rgba(255, 255, 255, 0.85);
+                    text-decoration: none;
+                  "
+                  >199 Oldham Road, Failsworth, <br>&nbsp &nbsp &nbsp &nbsp; Manchester M35 0BX, GB</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 25px;
+            padding-top: 15px;
+          "
+        >
+          <div style="text-align: center">
+            <h6
+              style="
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: #fff;
+              "
+            >
+              Follow Us
+            </h6>
+            <div style="display: flex; justify-content: center; gap: 20px">
+              <a
+                href="https://www.linkedin.com/company/sharpx-accountancy-services-ltd/"
+                class="item-link"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                style="color: #fff; font-size: 20px; transition: color 0.3s"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/sharpxaccountancy?utm_source=qr&igsh=Mm0xczRpaTZvbHU4"
+                class="item-link"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                style="color: #fff; font-size: 20px; transition: color 0.3s"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style="
+          background-color: #1e5a8e;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 10px 0;
+          text-align: center;
+          margin-top: 1px;
+        "
+      >
+        <p style="margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.9)">
+          Copyright © 2035 by SharpX Accountancy Services . All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

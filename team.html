@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" id="team">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meet The Experts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fontawesome-5.5/css/all.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/tooplate-infinite-loop.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Nunito Sans',sans-serif;
+    background:#ffffff;
+    color:#666;
+}
+
+/* Keep the navigation flush with the top edge of the browser at all times. */
+.tm-navbar{
+    top:0;
+    left:0;
+    right:0;
+}
+
+/*==============================
+        TEAM SECTION
+===============================*/
+
+.team-section{
+    max-width:1400px;
+    margin:80px auto;
+    padding:90px 70px;
+    background:linear-gradient(135deg,#f8fbfe 0%,#eef5fb 100%);
+    border-radius:25px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* Decorative Background */
+
+.team-section::before{
+    content:"";
+    position:absolute;
+    width:480px;
+    height:480px;
+    border-radius:50%;
+    background:rgba(47,111,167,.06);
+    top:-220px;
+    right:-220px;
+}
+
+.team-section::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    background:rgba(47,111,167,.05);
+    bottom:-170px;
+    left:-170px;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+}
+
+/*==============================
+        HEADING
+===============================*/
+
+.section-title{
+    font-size:58px;
+    font-weight:300;
+    color:#2f6fa7;
+    margin-bottom:22px;
+}
+
+.section-description{
+    max-width:950px;
+    font-size:22px;
+    line-height:1.9;
+    color:#666;
+    margin-bottom:75px;
+}
+
+/*==============================
+        TEAM MEMBER
+===============================*/
+
+.team-member{
+
+    display:flex;
+    align-items:flex-start;
+    gap:45px;
+
+    background:#fff;
+    padding:35px;
+    margin-bottom:40px;
+
+    border-left:6px solid #2f6fa7;
+    border-radius:18px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.07);
+
+    transition:.35s ease;
+
+}
+
+.team-member:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.team-member img{
+
+    width:250px;
+    height:310px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    transition:.35s;
+
+}
+
+.team-member:hover img{
+
+    transform:scale(1.03);
+
+}
+
+.member-info{
+
+    flex:1;
+
+}
+
+.member-info h3{
+
+    font-size:36px;
+
+    color:#2f6fa7;
+
+    font-weight:400;
+
+    margin-bottom:10px;
+
+}
+
+.member-info h4{
+
+    font-size:20px;
+
+    color:#555;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+
+}
+
+.member-info p{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#777;
+
+}
+
+/*==============================
+        RESPONSIVE
+===============================*/
+
+@media(max-width:992px){
+
+.team-member{
+
+    flex-direction:column;
+
+}
+
+.team-member img{
+
+    width:100%;
+    max-width:340px;
+    height:auto;
+
+}
+
+.section-title{
+
+    font-size:44px;
+
+}
+
+.section-description{
+
+    font-size:19px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.team-section{
+
+    margin:40px 20px;
+
+    padding:60px 30px;
+
+}
+
+.section-title{
+
+    font-size:38px;
+
+}
+
+.section-description{
+
+    font-size:17px;
+
+    margin-bottom:50px;
+
+}
+
+.team-member{
+
+    padding:25px;
+
+}
+
+.member-info h3{
+
+    font-size:30px;
+
+}
+
+.member-info h4{
+
+    font-size:18px;
+
+}
+
+.member-info p{
+
+    font-size:16px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md tm-navbar scroll" id="tmNav">
+    <div class="container px-4 px-md-3">
+        <a href="index.html" class="navbar-brand">
+            <img src="img/Logo_NoBackground.png" alt="SharpX Accountancy logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#teamNavbarContent"
+            aria-controls="teamNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="teamNavbarContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html#AboutUs">About Us</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link tm-nav-link dropdown-toggle" href="#" id="teamServicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
+                    <div class="dropdown-menu" aria-labelledby="teamServicesDropdown">
+                        <a class="dropdown-item" href="details/bookkeeping.html"><i class="fas fa-file-invoice"></i> Bookkeeping, VAT &amp; CIS Returns</a>
+                        <a class="dropdown-item" href="details/selfAssessment.html"><i class="fas fa-file-invoice-dollar"></i> Self-Assessment</a>
+                        <a class="dropdown-item" href="details/accounts.html"><i class="fas fa-calculator"></i> Accounts, Corporation Tax &amp; Payroll</a>
+                        <a class="dropdown-item" href="details/advisory.html"><i class="fas fa-users"></i> Advisory</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html#testimonials">Our Clients</a></li>
+                <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html#gallery">Experience</a></li>
+                <li class="nav-item"><a class="nav-link tm-nav-link" href="contactForm.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link tm-nav-link current" href="team.html">Leadership</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="team-section">
+
+<div class="container">
+
+<h2 class="section-title">
+Meet The Experts
+</h2>
+
+<p class="section-description">
+Behind every successful client is a dedicated team of professionals committed to delivering accounting, tax and advisory services. With extensive industry experience and a client-driven approach, we work closely with businesses and individuals to provide practical solutions, clear guidance and long-term financial confidence.
+</p>
+
+<!-- ===========================
+        TEAM MEMBER 1
+=========================== -->
+
+<div class="team-member">
+
+    <img src="images/member1.jpg" alt="John Smith">
+
+    <div class="member-info">
+
+        <h3>Muhammad Zahid Mahmood</h3>
+
+        <h4>Director & Partner</h4>
+
+        <p>
+            Specializes in both audit and accountancy, advising a number of entrepreneurial businesses and their owners. His knowledge and experience spans over Europe and UK in various sectors including clothing, logistics and freight.
+
+Zahid has previously worked in Europe with a lot of Cypriot companies and has vast experience of European Financial Reporting Standards.
+Outside of work, Zahid enjoys his time in travelling and watching sports.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ===========================
+        TEAM MEMBER 2
+=========================== -->
+
+<div class="team-member">
+
+    <img src="images/member2.jpg" alt="Sarah Wilson">
+
+    <div class="member-info">
+
+        <h3>Haider Ayub</h3>
+
+        <h4>Partner</h4>
+
+        <p>
+            Expertise in UK taxation and accountancy. His experience covers income tax, corporation tax, property tax & indirect taxes supporting businesses and individuals.
+            Specialising in Advanced Taxation, Haider is committed to continuous professional development and staying current with UK tax legislation and accounting standards. Apart from professional commitments, he actively pursue cricket & travelling. 
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -5,24 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lead Generation Form - SharpX Accountancy</title>
 
-<!-- Google Font (Montserrat Light style) -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-  }
+  :root { --ink: #0a3a70; --ink-hover: #084c95; --line: #dce8f5; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Nunito Sans', sans-serif; }
 
   body {
-    background: #f5f9fc;
+    color: #555;
+    background: #ffffff;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    align-items: flex-start;
+    min-height: 0;
     padding: 20px;
   }
 
@@ -30,16 +25,18 @@
     width: 100%;
     max-width: 520px;
     background: #fff;
-    border-radius: 14px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(59,120,168,0.15);
-    border: 1px solid #e6eef5;
+    border: none;
+    border-radius: 22px;
+    padding: 24px 32px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
   }
 
   h2 {
-    color: #3B78A8;
+    color: var(--ink);
+    font-size: 27px;
     font-weight: 400;
-    font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
   }
@@ -48,74 +45,98 @@
     display: none;
   }
 
+  .container > form {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: column;
+  }
+
   .step.active {
-    display: block;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
   }
 
   label.option {
     display: block;
     padding: 12px 14px;
     margin-bottom: 10px;
-    border: 1px solid #d7e6f2;
-    border-radius: 10px;
+    border: none;
+    border-radius: 9px;
     cursor: pointer;
-    color: #3B78A8;
-    transition: 0.3s;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
   }
 
   label.option:hover {
-    background: #f0f7fc;
-    border-color: #3B78A8;
+    background: #f4f8fd;
+    border-color: var(--ink);
   }
 
   input[type="radio"],
   input[type="checkbox"] {
     margin-right: 10px;
-    accent-color: #3B78A8;
+    accent-color: var(--ink);
   }
 
   input[type="text"],
   input[type="email"],
   input[type="tel"] {
     width: 100%;
-    padding: 12px;
+    padding: 12px 13px;
     margin-bottom: 12px;
-    border: 1px solid #d7e6f2;
-    border-radius: 10px;
+    border: none;
+    border-radius: 9px;
     outline: none;
-    color: #3B78A8;
+    color: #555;
+    font-size: 15px;
+    font-weight: 600;
   }
 
   input:focus {
-    border-color: #3B78A8;
-    box-shadow: 0 0 0 3px rgba(59,120,168,0.15);
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px rgba(10,58,112,.10);
   }
 
   .buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: auto;
   }
 
   button {
-    background: #3B78A8;
+    background: var(--ink);
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
+    padding: 13px 24px;
+    border-radius: 9px;
     cursor: pointer;
-    transition: 0.3s;
-    font-weight: 400;
+    transition: background .2s ease, transform .1s ease;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .3px;
   }
 
   button:hover {
-    background: #2f6590;
+    background: var(--ink-hover);
+    transform: translateY(-1px);
+  }
+
+  .form-title {
+    color: var(--ink);
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
   }
 
   .progress {
     height: 6px;
     width: 100%;
-    background: #e8f1f8;
+    background: #e7f0f9;
     border-radius: 20px;
     margin-bottom: 25px;
     overflow: hidden;
@@ -124,7 +145,7 @@
   .bar {
     height: 100%;
     width: 20%;
-    background: #3B78A8;
+    background: var(--ink);
     transition: 0.3s;
   }
 </style>
@@ -133,6 +154,8 @@
 <body>
 
 <div class="container">
+
+<h1 class="form-title">Assessment Form</h1>
 
 <div class="progress">
   <div class="bar" id="bar"></div>
@@ -239,7 +262,16 @@ function showStep(step){
   });
 
   bar.style.width = ((step + 1) / steps.length) * 100 + "%";
+  reportHeight();
 }
+
+function reportHeight(){
+  const height = document.documentElement.scrollHeight;
+  window.parent.postMessage({ source: "sharpxLeadForm", height: height }, "*");
+}
+
+window.addEventListener("load", reportHeight);
+window.addEventListener("resize", reportHeight);
 
 function validateCurrentStep() {
   const activeStep = steps[currentStep];

@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bookkeeping, VAT & CIS Returns</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fontawesome-5.5/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tooplate-infinite-loop.css">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .tm-navbar {
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      body {
+        font-family: "Nunito Sans", sans-serif;
+
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(10, 58, 112, 0.07) 0%,
+            transparent 380px
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(10, 58, 112, 0.06) 0%,
+            transparent 420px
+          ),
+          linear-gradient(180deg, #fdfefe 0%, #f8fbff 100%);
+
+        background-attachment: fixed;
+
+        padding: 10px 20px;
+
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+
+        position: fixed;
+
+        width: 500px;
+
+        height: 500px;
+
+        background: rgba(10, 58, 112, 0.05);
+
+        border-radius: 50%;
+
+        top: -220px;
+
+        left: -220px;
+
+        z-index: -2;
+
+        pointer-events: none;
+      }
+
+      body::after {
+        content: "";
+
+        position: fixed;
+
+        width: 380px;
+
+        height: 380px;
+
+        background: rgba(10, 58, 112, 0.04);
+
+        border-radius: 50%;
+
+        bottom: -180px;
+
+        right: -150px;
+
+        z-index: -2;
+
+        pointer-events: none;
+      }
+
+      .page-container {
+        max-width: 1250px;
+
+        margin: 90px auto 40px;
+
+        background: #ffffff;
+
+        border-radius: 22px;
+
+        padding: 55px;
+
+        box-shadow:
+          0 20px 50px rgba(10, 58, 112, 0.08),
+          0 5px 15px rgba(10, 58, 112, 0.04);
+
+        position: relative;
+      }
+
+      .main-title {
+        text-align: center;
+
+        font-size: 36px;
+
+        font-weight: 600;
+
+        color: #0a3a70;
+
+        margin-bottom: 15px;
+      }
+
+      .layout {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+
+        gap: 40px;
+      }
+
+      .left {
+        width: 63%;
+
+        min-width: 0;
+
+        background: #ffffff;
+
+        border: 1px solid #edf3fb;
+
+        border-radius: 18px;
+
+        padding: 35px;
+
+        box-shadow: 0 10px 25px rgba(10, 58, 112, 0.05);
+      }
+
+      .right {
+        width: 37%;
+
+        min-width: 0;
+
+        background: #ffffff;
+
+        border: 1px solid #edf3fb;
+
+        border-radius: 18px;
+
+        padding: 30px;
+
+        box-shadow: 0 10px 25px rgba(10, 58, 112, 0.05);
+      }
+
+      .service-title {
+        display: inline-block;
+
+        background: #0a3a70;
+
+        color: #ffffff;
+
+        font-size: 24px;
+
+        font-weight: 600;
+
+        padding: 12px 22px;
+
+        border-radius: 10px;
+
+        margin-bottom: 24px;
+
+        max-width: 100%;
+      }
+
+      .service-box ul {
+        padding-left: 24px;
+      }
+
+      .service-box li {
+        color: #0a3a70;
+
+        font-size: 20px;
+
+        font-weight: 400;
+
+        line-height: 1.9;
+
+        margin-bottom: 4px;
+
+        transition: 0.25s;
+
+        word-wrap: break-word;
+      }
+
+      .service-box li:hover {
+        color: #084c95;
+
+        padding-left: 6px;
+      }
+
+      .button-consult {
+        margin-top: 25px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0a3a70;
+        color: #ffffff;
+        font-family: "Nunito Sans", sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        padding: 14px 32px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+      }
+
+      .faq-title {
+        color: #0a3a70;
+
+        font-size: 26px;
+
+        font-weight: 600;
+
+        margin-bottom: 36px;
+      }
+
+      .right details {
+        border: 1px solid #d9d9d9;
+
+        border-radius: 10px;
+
+        margin-bottom: 12px;
+
+        overflow: hidden;
+
+        background: #ffffff;
+
+        transition: 0.3s;
+      }
+
+      .right details:hover {
+        transform: translateY(-2px);
+
+        box-shadow: 0 8px 20px rgba(10, 58, 112, 0.08);
+      }
+
+      .right summary {
+        cursor: pointer;
+
+        padding: 14px 20px;
+
+        list-style: none;
+
+        position: relative;
+
+        color: #0a3a70;
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        padding-right: 45px;
+      }
+
+      .right summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .right summary::after {
+        content: "+";
+
+        position: absolute;
+
+        right: 18px;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        font-size: 20px;
+
+        font-weight: 700;
+      }
+
+      .right details[open] summary::after {
+        content: "−";
+      }
+
+      .right details p {
+        padding: 0 20px 16px;
+
+        font-size: 15px;
+
+        color: #555;
+
+        line-height: 1.7;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          flex-direction: column;
+        }
+
+        .left,
+        .right {
+          width: 100%;
+        }
+
+        .main-title {
+          font-size: 28px;
+        }
+
+        .service-title {
+          font-size: 19px;
+        }
+
+        .service-box li {
+          font-size: 15px;
+        }
+
+        .right summary {
+          font-size: 14px;
+        }
+
+        .right details p {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-container {
+          padding: 30px 20px;
+        }
+
+        .main-title {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md tm-navbar scroll" id="tmNav">
+      <div class="container px-4 px-md-3">
+        <a href="../index.html" class="navbar-brand">
+          <img src="../img/Logo_NoBackground.png" alt="SharpX Accountancy logo">
+        </a>
+
+        <button class="navbar-toggler mr-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars navbar-toggler-icon"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#AboutUs">About Us</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link tm-nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
+              <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                <a class="dropdown-item" href="bookkeeping.html"><i class="fas fa-file-invoice"></i> Bookkeeping, VAT &amp; CIS Returns</a>
+                <a class="dropdown-item" href="selfAssessment.html"><i class="fas fa-file-invoice-dollar"></i> Self-Assessment</a>
+                <a class="dropdown-item" href="accounts.html"><i class="fas fa-calculator"></i> Accounts, Corporation Tax &amp; Payroll</a>
+                <a class="dropdown-item" href="advisory.html"><i class="fas fa-users"></i> Advisory</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#testimonials">Our Clients</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#gallery">Experience</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../contactForm.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../team.html">Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-container">
+      <h1 class="main-title">Bookkeeping, VAT &amp; CIS Returns</h1>
+
+      <div class="layout">
+        <div class="left">
+          <h2 class="service-title">Bookkeeping, VAT &amp; CIS Returns</h2>
+
+          <div class="service-box">
+            <ul>
+              <li>Day-to-day, monthly, and quarterly bookkeeping.</li>
+
+              <li>Recording and maintaining financial transactions.</li>
+
+              <li>Bank and credit card reconciliations.</li>
+
+              <li>Sales and purchase ledger management.</li>
+
+              <li>Expense recording and categorization.</li>
+
+              <li>Accounts payable and accounts receivable management.</li>
+
+              <li>VAT registration and deregistration support.</li>
+
+              <li>Preparation and submission of VAT Returns.</li>
+
+              <li>Making Tax Digital (MTD) compliant record keeping.</li>
+
+              <li>CIS contractor and subcontractor registration.</li>
+
+              <li>Subcontractor verification with HMRC.</li>
+
+              <li>Preparation and submission of monthly CIS Returns.</li>
+
+              <li>CIS deduction calculations and payment statements.</li>
+
+              <li>Maintenance of digital accounting records.</li>
+
+              <li>Year-end bookkeeping adjustments.</li>
+
+              <li>Compliance with statutory filing deadlines.</li>
+
+              <li>Ongoing support for bookkeeping, VAT, and CIS queries.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="right">
+          <h2 class="faq-title">FAQs</h2>
+          <details>
+            <summary>Why is bookkeeping important for my business?</summary>
+            <p>
+              Accurate bookkeeping helps you understand your cash flow, monitor
+              profits, prepare tax returns, and make informed business decisions
+              while staying compliant with HMRC.
+            </p>
+          </details>
+
+          <details>
+            <summary>How often should my bookkeeping be updated?</summary>
+            <p>
+              Ideally, your records should be updated weekly or monthly. Leaving
+              everything until year-end often leads to errors and missed
+              tax-saving opportunities.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I need to register for VAT?</summary>
+            <p>
+              If your taxable turnover exceeds the current HMRC threshold,
+              registration is usually mandatory. Voluntary registration may also
+              benefit some businesses.
+            </p>
+          </details>
+
+          <details>
+            <summary>Which VAT scheme is best for my business?</summary>
+            <p>
+              The best scheme depends on your turnover, industry, and expenses.
+              We assess your circumstances and recommend the most tax-efficient
+              option.
+            </p>
+          </details>
+
+          <details>
+            <summary>What are the benefits of claiming VAT?</summary>
+            <p>
+              Claiming VAT reduces your business costs, improves cash flow, and
+              ensures you don't pay more tax than necessary.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens if I submit my VAT return late?</summary>
+            <p>
+              Late submissions or payments may result in HMRC penalties,
+              interest, and compliance points.
+            </p>
+          </details>
+
+          <details>
+            <summary>What is CIS?</summary>
+            <p>
+              The Construction Industry Scheme is an HMRC scheme that governs
+              tax deductions from payments made by contractors to subcontractors
+              in the construction industry.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I need to register for CIS?</summary>
+            <p>
+              If you're a contractor or subcontractor carrying out qualifying
+              construction work, you may need to register with HMRC.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I reclaim CIS deductions?</summary>
+            <p>
+              Yes. If you've had more tax deducted than you owe, you may be able
+              to reclaim it through your tax return.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens if I don't register for CIS?</summary>
+            <p>
+              Contractors may deduct 30% from your payments instead of 20%.
+              Registering helps improve cash flow by reducing deductions and
+              keeping you compliant with HMRC.
+            </p>
+          </details>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 30px;">
+        <button
+            class="button-consult"
+            type="button"
+            onclick="window.location.href = '../contactForm.html'"
+            onmouseenter="this.style.backgroundColor = '#084c95'"
+            onmouseleave="
+              this.style.backgroundColor = '#0a3a70';
+              this.style.transform = 'scale(1)';
+            "
+            onmousedown="
+              this.style.backgroundColor = '#084c95';
+              this.style.transform = 'scale(0.96)';
+            "
+            onmouseup="
+              this.style.backgroundColor = '#084c95';
+              this.style.transform = 'scale(1)';
+            "
+          >
+            Book A Free Consultation
+          </button>
+      </div>
+      
+    </div>
+
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+</html>

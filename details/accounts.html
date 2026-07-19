@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Monthly/Annual Accounts/Corporation Tax & Payroll</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../fontawesome-5.5/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/tooplate-infinite-loop.css">
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .tm-navbar {
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      body {
+        font-family: "Nunito Sans", sans-serif;
+
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(10, 58, 112, 0.07) 0%,
+            transparent 380px
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(10, 58, 112, 0.06) 0%,
+            transparent 420px
+          ),
+          linear-gradient(180deg, #fdfefe 0%, #f8fbff 100%);
+
+        background-attachment: fixed;
+
+        padding: 10px 20px;
+
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+
+        position: fixed;
+
+        width: 500px;
+
+        height: 500px;
+
+        background: rgba(10, 58, 112, 0.05);
+
+        border-radius: 50%;
+
+        top: -220px;
+
+        left: -220px;
+
+        z-index: -2;
+
+        pointer-events: none;
+      }
+
+      body::after {
+        content: "";
+
+        position: fixed;
+
+        width: 380px;
+
+        height: 380px;
+
+        background: rgba(10, 58, 112, 0.04);
+
+        border-radius: 50%;
+
+        bottom: -180px;
+
+        right: -150px;
+
+        z-index: -2;
+
+        pointer-events: none;
+      }
+
+      .page-container {
+        max-width: 1250px;
+
+        margin: 90px auto 40px;
+
+        background: #ffffff;
+
+        border-radius: 22px;
+
+        padding: 55px;
+
+        box-shadow:
+          0 20px 50px rgba(10, 58, 112, 0.08),
+          0 5px 15px rgba(10, 58, 112, 0.04);
+
+        position: relative;
+      }
+
+      .main-title {
+        text-align: center;
+
+        font-size: 36px;
+
+        font-weight: 600;
+
+        color: #0a3a70;
+
+        margin-bottom: 15px;
+      }
+
+      .layout {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+
+        gap: 40px;
+      }
+
+      .left {
+        width: 63%;
+
+        min-width: 0;
+
+        background: #ffffff;
+
+        border: 1px solid #edf3fb;
+
+        border-radius: 18px;
+
+        padding: 35px;
+
+        box-shadow: 0 10px 25px rgba(10, 58, 112, 0.05);
+      }
+
+      .right {
+        width: 37%;
+
+        min-width: 0;
+
+        background: #ffffff;
+
+        border: 1px solid #edf3fb;
+
+        border-radius: 18px;
+
+        padding: 30px;
+
+        box-shadow: 0 10px 25px rgba(10, 58, 112, 0.05);
+      }
+
+      .service-title {
+        display: inline-block;
+
+        background: #0a3a70;
+
+        color: #ffffff;
+
+        font-size: 24px;
+
+        font-weight: 600;
+
+        padding: 12px 22px;
+
+        border-radius: 10px;
+
+        margin-bottom: 26px;
+
+        max-width: 100%;
+      }
+
+      .service-box ul {
+        padding-left: 24px;
+      }
+
+      .service-box li {
+        color: #0a3a70;
+
+        font-size: 20px;
+
+        font-weight: 400;
+
+        line-height: 1.9;
+
+        margin-bottom: 4px;
+
+        transition: 0.25s;
+
+        word-wrap: break-word;
+      }
+
+      .service-box li:hover {
+        color: #084c95;
+
+        padding-left: 6px;
+      }
+
+      .button-consult {
+        margin-top: 35px;
+        margin-left: 15px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0a3a70;
+        color: #ffffff;
+        font-family: "Nunito Sans", sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        padding: 14px 32px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          transform 0.1s ease;
+      }
+
+      .faq-title {
+        color: #0a3a70;
+
+        font-size: 26px;
+
+        font-weight: 600;
+
+        margin-bottom: 18px;
+      }
+
+      .right details {
+        border: 1px solid #d9d9d9;
+
+        border-radius: 10px;
+
+        margin-bottom: 12px;
+
+        overflow: hidden;
+
+        background: #ffffff;
+
+        transition: 0.3s;
+      }
+
+      .right details:hover {
+        transform: translateY(-2px);
+
+        box-shadow: 0 8px 20px rgba(10, 58, 112, 0.08);
+      }
+
+      .right summary {
+        cursor: pointer;
+
+        padding: 14px 20px;
+
+        list-style: none;
+
+        position: relative;
+
+        color: #0a3a70;
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        padding-right: 45px;
+      }
+
+      .right summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .right summary::after {
+        content: "+";
+
+        position: absolute;
+
+        right: 18px;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        font-size: 20px;
+
+        font-weight: 700;
+      }
+
+      .right details[open] summary::after {
+        content: "−";
+      }
+
+      .right details p {
+        padding: 0 20px 16px;
+
+        font-size: 15px;
+
+        color: #555;
+
+        line-height: 1.7;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          flex-direction: column;
+        }
+
+        .left,
+        .right {
+          width: 100%;
+        }
+
+        .main-title {
+          font-size: 28px;
+        }
+
+        .service-title {
+          font-size: 19px;
+        }
+
+        .service-box li {
+          font-size: 15px;
+        }
+
+        .right summary {
+          font-size: 14px;
+        }
+
+        .right details p {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-container {
+          padding: 30px 20px;
+        }
+
+        .main-title {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md tm-navbar scroll" id="tmNav">
+      <div class="container px-4 px-md-3">
+        <a href="../index.html" class="navbar-brand">
+          <img src="../img/Logo_NoBackground.png" alt="SharpX Accountancy logo">
+        </a>
+
+        <button class="navbar-toggler mr-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars navbar-toggler-icon"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#AboutUs">About Us</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link tm-nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
+              <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                <a class="dropdown-item" href="bookkeeping.html"><i class="fas fa-file-invoice"></i> Bookkeeping, VAT &amp; CIS Returns</a>
+                <a class="dropdown-item" href="selfAssessment.html"><i class="fas fa-file-invoice-dollar"></i> Self-Assessment</a>
+                <a class="dropdown-item" href="accounts.html"><i class="fas fa-calculator"></i> Accounts, Corporation Tax &amp; Payroll</a>
+                <a class="dropdown-item" href="advisory.html"><i class="fas fa-users"></i> Advisory</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#testimonials">Our Clients</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#gallery">Experience</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../contactForm.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../team.html">Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-container">
+      <h1 class="main-title">Monthly/Annual Accounts &amp; Payroll</h1>
+
+      <div class="layout">
+        <div class="left">
+          <h2 class="service-title">
+            Monthly/Annual Accounts/Corporation Tax &amp; Payroll
+          </h2>
+
+          <div class="service-box">
+            <ul>
+              <li>Preparation of monthly management accounts.</li>
+
+              <li>
+                Preparation and submission of annual statutory accounts.
+              </li>
+
+              <li>Corporation Tax return preparation and filing.</li>
+
+              <li>
+                Financial statements prepared in accordance with applicable
+                accounting standards.
+              </li>
+
+              <li>Profit and loss, balance sheet, and cash flow reporting.</li>
+
+              <li>Budgeting and financial performance reporting.</li>
+
+              <li>Payroll processing for directors and employees.</li>
+
+              <li>Real Time Information (RTI) submissions to HMRC.</li>
+
+              <li>
+                Workplace pension administration and auto-enrolment
+                compliance.
+              </li>
+
+              <li>
+                Statutory payments administration (SSP, SMP, SPP, SAP, etc.).
+              </li>
+
+              <li>Employer PAYE and National Insurance reporting.</li>
+
+              <li>Ongoing payroll and accounts support.</li>
+
+              <li>
+                Compliance with HMRC and Companies House filing deadlines.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="right">
+          <h2 class="faq-title">FAQs</h2>
+
+          <details>
+            <summary>Why do I need monthly management accounts?</summary>
+            <p>
+              They provide a clear view of your business performance, helping
+              you monitor profitability, cash flow, and make informed
+              decisions.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I need to prepare annual accounts?</summary>
+            <p>
+              Limited companies are required to prepare and file annual
+              accounts with Companies House and HMRC.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens if I file my annual accounts late?</summary>
+            <p>
+              Late filing can result in penalties from Companies House and may
+              affect your company's compliance record.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              Can you deal with HMRC and Companies House on my behalf?
+            </summary>
+            <p>
+              With your authorization, we can communicate with HMRC and
+              Companies House regarding your accounts and tax matters.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              What information do I need to provide each pay period?
+            </summary>
+            <p>
+              Simply provide any changes to employee hours, salaries, bonuses,
+              or new starters and leavers.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you submit payroll information to HMRC?</summary>
+            <p>
+              We submit all required Real Time Information (RTI) reports
+              to HMRC.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens if payroll is submitted late?</summary>
+            <p>
+              Late submissions can result in HMRC penalties. We help ensure
+              payroll is processed and reported on time.
+            </p>
+          </details>
+
+          <details>
+            <summary>When is my Corporation Tax due?</summary>
+            <p>
+              Corporation Tax is usually due 9 months and 1 day after the end
+              of your company's accounting period.
+            </p>
+          </details>
+
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <button
+            class="button-consult"
+            type="button"
+            onclick="window.location.href = '../contactForm.html'"
+            onmouseenter="this.style.backgroundColor = '#084c95'"
+            onmouseleave="
+              this.style.backgroundColor = '#0a3a70';
+              this.style.transform = 'scale(1)';
+            "
+            onmousedown="
+              this.style.backgroundColor = '#084c95';
+              this.style.transform = 'scale(0.96)';
+            "
+            onmouseup="
+              this.style.backgroundColor = '#084c95';
+              this.style.transform = 'scale(1)';
+            "
+          >
+            Book A Free Consultation
+          </button>
+      </div>
+      
+    </div>
+
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+  </body>
+</html>

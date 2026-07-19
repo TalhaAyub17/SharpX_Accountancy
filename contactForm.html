@@ -281,7 +281,13 @@
       <section class="contact-card" aria-label="Contact us">
         <div class="form-panel">
           <h1>Send us a message</h1>
-          <form action="#" method="post">
+          <form action="https://api.web3forms.com/submit" method="POST">
+
+          <input type="hidden" name="access_key" value="a24472c0-46aa-4830-95df-3df0b748cb43">
+          <input type="hidden" name="from_name" value="SharpX Accountancy Contact Form">
+          <input type="hidden" name="subject" value="New Contact Form Submission">
+          <input type="hidden" name="replyto" value="info@sharpxaccountancy.co.uk">
+          <input type="hidden" name="redirect" value="https://sharpxaccountancy.co.uk">
             <div class="field-grid">
               <div class="field">
                 <label for="name">Name *</label>

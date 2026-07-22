@@ -363,6 +363,60 @@
         }
       }
     </style>
+
+    <style>
+      /* Make the "Our Services" dropdown expand inline within the mobile menu
+         instead of floating as an absolutely-positioned box that overflows
+         off the right edge of the screen. */
+      @media (max-width: 767px) {
+        /* .navbar-nav is capped at max-width:200px in tooplate-infinite-loop.css,
+           which is fine for the plain links but too narrow for the "Our Services"
+           submenu items. Relax it only while that dropdown is open. */
+        #tmNav .navbar-nav:has(.dropdown-menu.show) {
+          max-width: 295px;
+        }
+
+        #tmNav .dropdown-menu {
+          position: static;
+          float: none;
+          width: max-content;
+          max-width: 295px;
+          margin: 0 -10px !important;
+          /* reclaims the mobile menu card's own 10px side padding, since the
+             longest item ("Accounts, Corporation Tax & Payroll") needs every
+             available pixel to fit on one line */
+          border: none;
+          box-shadow: none;
+          background-color: transparent;
+        }
+
+        /* Keep each item's icon + label on a single line. The longest item
+           genuinely does not fit at the site's default mobile font-size/padding
+           within the available card width, so both are reduced here. */
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item {
+          white-space: nowrap;
+          font-size: 0.72rem !important;
+          padding: 6px 8px 6px 10px !important;
+        }
+
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item i {
+          width: 12px !important;
+          margin-right: 4px !important;
+        }
+
+        /* Bootstrap turns the toggle white when the dropdown is open/focused,
+   which is invisible against the white mobile menu background.
+   Force it to match the other nav links instead. Only override the
+   focus/active/show states -- leave the resting state alone so
+   "Our Services" matches the other links' color when closed. */
+#tmNav .dropdown-toggle.show,
+#tmNav .dropdown-toggle:focus,
+#tmNav .dropdown-toggle:active {
+  color: #707070 !important;
+}
+      }
+    </style>
+
   </head>
 
   <body>
@@ -392,10 +446,8 @@
                 <a class="dropdown-item" href="advisory.html"><i class="fas fa-users"></i> Advisory</a>
               </div>
             </li>
-            <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#testimonials">Our Clients</a></li>
             <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#gallery">Experience</a></li>
             <li class="nav-item"><a class="nav-link tm-nav-link" href="../contactForm.html">Contact</a></li>
-            <li class="nav-item"><a class="nav-link tm-nav-link" href="../team.html">Leadership</a></li>
           </ul>
         </div>
       </div>

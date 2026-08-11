@@ -1,635 +1,1831 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>SharpX Accountancy</title>
-  <link rel="icon" type="image/png" href="img/Logo_NoBackground_Blue.png" />
-  <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
-  <link rel="stylesheet" href="slick/slick.css">
-  <link rel="stylesheet" href="slick/slick-theme.css">
-  <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="icon" type="image/png" href="img/Logo_NoBackground_Blue.png" />
-  <style>
-    /* Make the "Our Services" dropdown expand inline within the mobile menu
-       instead of floating as an absolutely-positioned box that overflows
-       off the right edge of the screen. */
-    @media (max-width: 767px) {
-      /* .navbar-nav is capped at max-width:200px in tooplate-infinite-loop.css,
-         which is fine for the plain links but too narrow for the "Our Services"
-         submenu items. Relax it only while that dropdown is open. */
-      #tmNav .navbar-nav:has(.dropdown-menu.show) {
-        max-width: 295px;
-      }
-
-      #tmNav .dropdown-menu {
-        position: static;
-        float: none;
-        width: max-content;
-        max-width: 295px;
-        margin: 0 -10px !important;
-        /* reclaims the mobile menu card's own 10px side padding, since the
-           longest item ("Accounts, Corporation Tax & Payroll") needs every
-           available pixel to fit on one line */
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
-      }
-
-      /* Keep each item's icon + label on a single line. The longest item
-         genuinely does not fit at the site's default mobile font-size/padding
-         within the available card width, so both are reduced here. */
-      #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item {
-        white-space: nowrap;
-        font-size: 0.72rem !important;
-        padding: 6px 8px 6px 10px !important;
-      }
-
-      #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item i {
-        width: 12px !important;
-        margin-right: 4px !important;
-      }
-
-      /* Bootstrap turns the toggle white when the dropdown is open/focused,
-         which is invisible against the white mobile menu background.
-         Force it to match the other nav links instead. */
-      #tmNav .dropdown-toggle,
-      #tmNav .dropdown-toggle.show,
-      #tmNav .dropdown-toggle:focus,
-      #tmNav .dropdown-toggle:active,
-      #tmNav .dropdown-toggle:hover {
-        color: #707070 !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <section id="infinite" class="text-white tm-font-big tm-parallax">
-    <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">
-      <div class="container px-4 px-md-3">
-        <div class="tm-next">
-          <a href="#sharpx" class="navbar-brand">
-            <img src="img/Logo_NoBackground.png" alt="SharpX Accountany logo" class="img-fluid">
-          </a>
-        </div>
-
-        <button class="navbar-toggler mr-1" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-          style="margin-right: 5px;">
-          <i class="fas fa-bars navbar-toggler-icon"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link tm-nav-link" href="#infinite">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tm-nav-link" href="#AboutUs">About Us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link tm-nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Our Services
-              </a>
-              <div class="dropdown-menu" aria-labelledby="servicesDropdown">
-                <a class="dropdown-item" href="details/bookkeeping.html">
-                  <i class="fas fa-file-invoice"></i> Bookkeeping, VAT &amp; CIS Returns
-                </a>
-                <a class="dropdown-item" href="details/selfAssessment.html">
-                  <i class="fas fa-file-invoice-dollar"></i> Self-Assessment
-                </a>
-                <a class="dropdown-item" href="details/accounts.html">
-                  <i class="fas fa-calculator"></i> Accounts, Corporation Tax &amp; Payroll
-                </a>
-                <a class="dropdown-item" href="details/advisory.html">
-                  <i class="fas fa-users"></i> Advisory
-                </a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tm-nav-link" href="#gallery">Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link tm-nav-link" href="contactForm.html">Contact</a>
-            </li>
-            
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="text-center tm-hero-text-container">
-      <div class="tm-hero-text-container-inner">
-        <h2 class="tm-hero-title">SharpX Accountancy</h2>
-        <p class="tm-hero-subtitle">
-          Digitalized Solutions For A Smarter Tomorrow
-          <br>
-        </p>
-      </div>
-      <div class="tm-next tm-intro-next text-center"
-        style="display: flex; justify-content: center; width: 100%; margin-top: 20px;">
-        <button type="button" onclick="window.location.href='contact.html';"
-          onmouseenter="this.style.backgroundColor='#2e5394'; this.style.color='#ffffff';"
-          onmouseleave="this.style.backgroundColor='#ffffff'; this.style.color='#2e5394'; this.style.transform='scale(1)';"
-          onmousedown="this.style.backgroundColor='#2e5394'; this.style.color='#ffffff'; this.style.transform='scale(0.96)';"
-          onmouseup="this.style.backgroundColor='#2e5394'; this.style.color='#ffffff'; this.style.transform='scale(1)';"
-          style="display: inline-flex; align-items: center; justify-content: center; background-color: #ffffff; color: #2e5394; font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 20px; padding: 14px 32px; border-radius: 4px; border: none; outline: none; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;">
-          Book A Free Consultation
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section id="AboutUs" class="tm-section-pad-top">
-    <div class="container about-section">
-      <div class="row tm-content-box">
-        <div class="col-lg-12 col-xl-12">
-          <div class="tm-intro-text-container" style="text-align: center">
-            <h2 class="tm-text-primary mb-4 tm-section-title">About Us</h2>
-            <p class="mb-4 tm-intro-text">
-              At SharpX, we provide a wide range of specialized Accounting,
-              Tax & Advisory services tailored to meet your business needs.
-              Our team of experienced professionals is dedicated to providing
-              customized solutions that address the unique challenges and
-              opportunities of each business.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="services">
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-file-invoice"></i>
-          </div>
-          <h2 class="tm-text-primary">Bookkeeping VAT &amp; CIS Returns</h2>
-          <p class="tm-intro-text">
-            Maintaining Books and HMRC-compliant filing.
-          </p>
-          <a href="/details/bookkeeping.html" class="learn-btn">Learn More</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-file-invoice-dollar"></i>
-          </div>
-          <h2 class="tm-text-primary">Self-Assessment</h2>
-          <p class="tm-intro-text">
-            Professional tax return preparation and submission.
-          </p>
-          <a href="/details/selfAssessment.html" class="learn-btn">Learn More</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-calculator"></i>
-          </div>
-          <h2 class="tm-text-primary">
-            Monthly/Annual Accounts/Corporation Tax &amp; Payroll
-          </h2>
-          <p class="tm-intro-text">
-            Financial reporting, CT600 and payroll management.
-          </p>
-          <a href="/details/accounts.html" class="learn-btn">Learn More</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h2 class="tm-text-primary">Advisory</h2>
-          <p class="tm-intro-text">
-            Strategic advice to support your business growth.
-          </p>
-          <a href="/details/advisory.html" class="learn-btn">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="gallery" class="tm-section-pad-top">
-    <div class="container tm-container-gallery">
-      <div class="row">
-        <div class="text-center col-12">
-          <h2 class="tm-text-primary tm-section-title mb-4">Industry Experience</h2>
-          <p class="mx-auto tm-section-desc text-center">
-            Our firm delivers tailored accounting, tax, and advisory solutions across key industries, from healthcare
-            and real estate to tech and construction. Reach out today to see how our deep sector expertise can help your
-            business stay compliant and grow.
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="mx-auto tm-gallery-container">
-            <div class="grid tm-gallery">
-              <a href="img/T01.jpg">
-                <figure class="effect-honey tm-gallery-item">
-                  <img src="img/T01.jpg" alt="Image 1" class="img-fluid">
-                  <figcaption>
-                    <h2><i>Food & <span>Travel</span></i></h2>
-                  </figcaption>
-                </figure>
-              </a>
-              <a href="img/T02.jpg">
-                <figure class="effect-honey tm-gallery-item">
-                  <img src="img/T02.jpg" alt="Image 2" class="img-fluid">
-                  <figcaption>
-                    <h2><i>Wholesale & <span>Retail</span></i></h2>
-                  </figcaption>
-                </figure>
-              </a>
-              <a href="img/Doctor Patient Consultation.jpg">
-                <figure class="effect-honey tm-gallery-item">
-                  <img src="img/Doctor Patient Consultation.jpg" alt="Image 3" class="img-fluid">
-                  <figcaption>
-                    <h2><i><span>Health & </span>Care</i></h2>
-                  </figcaption>
-                </figure>
-              </a>
-              <a href="img/T04.jpg">
-                <figure class="effect-honey tm-gallery-item">
-                  <img src="img/T04.jpg" alt="Image 4" class="img-fluid">
-                  <figcaption>
-                    <h2><i>Construction & <span>Real Estate</span></i></h2>
-                  </figcaption>
-                </figure>
-              </a>
-              <a href="img/IT.jpg">
-                <figure class="effect-honey tm-gallery-item">
-                  <img src="img/IT.jpg" alt="Image 6" class="img-fluid">
-                  <figcaption>
-                    <h2><i><span>Information </span> Technology</i></h2>
-                  </figcaption>
-                </figure>
-              </a>
-              <a href="img/Automobile.jpg">
-                <figure class="effect-honey tm-gallery-item">
-                  <img src="img/Automobile.jpg" alt="Image 5" class="img-fluid">
-                  <figcaption>
-                    <h2><i><span>Automobile</span></i></h2>
-                  </figcaption>
-                </figure>
-              </a>
-            </div>
-
-          </div>
-          <div style="text-align: center" class="col-12" style="margin-top: 40px;">
-
-            <img src="img/Hubdoc.jpeg" alt="Image 7" class="img-fluid" width="100" height="100">
-            <span style="margin-right: 50px;"></span>
-            <img src="img/Bright_Pay.jpeg" alt="Image 7" class="img-fluid" width="100" height="100">
-            <span style="margin-right: 50px;"></span>
-            <img src="img/Dext.jpeg" alt="Image 7" class="img-fluid" width="50" height="50">
-            <span style="margin-right: 50px;"></span>
-            <img src="img/QB.jpeg" alt="Image 7" class="img-fluid" width="50" height="50">
-            <span style="margin-right: 50px;"></span>
-            <img src="img/Xero.jpeg" alt="Image 7" class="img-fluid" width="50" height="50">
-            <span style="margin-right: 50px;"></span>
-            <img src="img/Iris.jpeg" alt="Image 7" class="img-fluid" width="100" height="100">
-            <span style="margin-right: 50px;"></span>
-            <img src="img/Sage.jpeg" alt="Image 7" class="img-fluid" width="100" height="100">
-            <span style="margin-right: 50px;"></span>
-            <img src="img/Taxcalc.jpeg" alt="Image 7" class="img-fluid" width="100" height="100">
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section id="contact" class="tm-section-pad-top tm-parallax-2"
-    style="padding-top: 80px; padding-bottom: 120px; min-height: auto; height: auto; background-color: #ffffff; margin-bottom: 0;">
-    <div class="container tm-container-contact">
-      <div class="row">
-        <div class="text-center col-12">
-          <h2 class="tm-section-title mb-4" style="color: #ffffff;">Contact Us</h2>
-          <p class="mb-4" style="color: #ffffff;">
-            Have a question or want to work together? <br> Click on the button below and our team will get back to you
-            within 24 hours.
-          </p>
-          <div style="height: 40px;"></div>
-          <button type="button" onclick="window.location.href='contact.html';"
-            onmouseenter="this.style.backgroundColor='#2e5394'; this.style.color='#ffffff';"
-            onmouseleave="this.style.backgroundColor='#ffffff'; this.style.color='#2e5394'; this.style.transform='scale(1)';"
-            onmousedown="this.style.backgroundColor='#2e5394'; this.style.color='#ffffff'; this.style.transform='scale(0.96)';"
-            onmouseup="this.style.backgroundColor='#2e5394'; this.style.color='#ffffff'; this.style.transform='scale(1)';"
-            style="display: inline-flex; align-items: center; justify-content: center; background-color: #ffffff; color: #2e5394; font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 20px; padding: 14px 32px; border-radius: 4px; border: 1px solid #2e5394; outline: none; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;">
-            Book A Free Consultation
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer class="tm-footer"
-    style="background-color: #2E7AB8; color: #fff; padding: 20px 0 0 0; margin: 0; position: relative; z-index: 10; width: 100%; display: block; box-shadow: 0 50vh 0 50vh #1E5A8E;">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="SharpX Accountancy — Expert accounting, tax, and advisory services. Digitalized solutions for a smarter tomorrow."
+    />
+    <title>SharpX Accountancy</title>
+    <link rel="icon" type="image/png" href="img/Logo_NoBackground_Blue.png" />
+    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="slick/slick.css" />
+    <link rel="stylesheet" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <style>
-      html,
+      /* ============================================================
+       SHARPX PREMIUM VISUAL OVERHAUL
+       Color theme preserved: #37a, #369, #2e5394, #2E7AB8, #1E5A8E
+       ============================================================ */
+
+      /* --- CSS Custom Properties (Design Tokens) --- */
+      :root {
+        --sx-blue-primary: #2e7ab8;
+        --sx-blue-dark: #1f4f7a;
+        --sx-blue-navy: #163a63;
+        --sx-blue-medium: #2e86c1;
+        --sx-blue-deep: #0f2a4a;
+        --sx-blue-light: #4a9fd8;
+        --sx-blue-accent: #2e86c1;
+        --sx-gold: #2e86c1;
+        --sx-gold-deep: #1b4f72;
+        --sx-gray: #5c6b7a;
+        --sx-bg-light: #eef3f9;
+        --sx-card-border: #dde6f0;
+        --sx-shadow-sm: 0 3px 14px rgba(14, 44, 80, 0.12);
+        --sx-shadow-md: 0 10px 30px rgba(14, 44, 80, 0.18);
+        --sx-shadow-lg: 0 20px 54px rgba(14, 44, 80, 0.24);
+        --sx-radius: 20px;
+        --sx-radius-sm: 12px;
+        --sx-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --sx-font: "Inter", "Nunito Sans", "Raleway", sans-serif;
+        --sx-font-serif: "Playfair Display", "Georgia", serif;
+      }
+
+      /* --- Global Overrides --- */
       body {
-        margin: 0 !important;
-        padding: 0 !important;
-        background-color: #ffffff !important;
-        height: 100%;
+        font-family: var(--sx-font) !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* --- Scroll Reveal Animations --- */
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(51, 119, 170, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(51, 119, 170, 0.6);
+        }
+      }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- Scroll-triggered fade-up reveal --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Staggered delays for groups of sibling cards/items so they cascade in rather than popping together */
+      .services .service-card.reveal:nth-child(2) { transition-delay: 0.08s; }
+      .services .service-card.reveal:nth-child(3) { transition-delay: 0.16s; }
+      .services .service-card.reveal:nth-child(4) { transition-delay: 0.24s; }
+      .partner-logo-item.reveal:nth-child(2) { transition-delay: 0.08s; }
+      .partner-logo-item.reveal:nth-child(3) { transition-delay: 0.16s; }
+      .partner-logo-item.reveal:nth-child(4) { transition-delay: 0.24s; }
+      .partner-logo-item.reveal:nth-child(5) { transition-delay: 0.32s; }
+      .partner-logo-item.reveal:nth-child(6) { transition-delay: 0.4s; }
+      .partner-logo-item.reveal:nth-child(7) { transition-delay: 0.48s; }
+      .partner-logo-item.reveal:nth-child(8) { transition-delay: 0.56s; }
+
+      /* Respect users who've asked for reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+
+      /* --- HERO SECTION OVERHAUL --- */
+      #infinite {
+        position: relative;
+        overflow: hidden;
+      }
+      #infinite::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(14, 34, 60, 0.72);
+        z-index: 1;
+      }
+      #infinite > * {
+        position: relative;
+        z-index: 3;
+      }
+      #infinite .tm-navbar {
+        z-index: 1001;
+      }
+
+      /* --- STICKY NAVBAR --- */
+      .tm-navbar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100%;
+        z-index: 1050 !important;
+        background: rgba(15, 42, 74, 0.12);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        transition:
+          background 0.35s ease,
+          box-shadow 0.35s ease,
+          backdrop-filter 0.35s ease;
+      }
+      /* Solid, opaque background once the page is scrolled so the bar never blends into the content behind it */
+      .tm-navbar.scroll {
+        background: white !important;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      /* Default state: white text over the hero */
+      .tm-navbar .tm-nav-link,
+      .tm-navbar .navbar-toggler i {
+        color: #ffffff !important;
+      }
+      .tm-navbar .dropdown-toggle::after {
+        border-top-color: #ffffff;
+      }
+
+      /* Scrolled state: blue text on the white bar */
+      .tm-navbar.scroll .tm-nav-link,
+      .tm-navbar.scroll .navbar-toggler i {
+        color: var(--sx-blue-primary) !important;
+      }
+      .tm-navbar.scroll .dropdown-toggle::after {
+        border-top-color: var(--sx-blue-primary);
+      }
+
+      /* Active & Hover states: ensure crisp white text over blue active background */
+      .tm-navbar .tm-nav-link:hover,
+      .tm-navbar .tm-nav-link.active,
+      .tm-navbar .tm-nav-link.current,
+      .tm-navbar.scroll .tm-nav-link:hover,
+      .tm-navbar.scroll .tm-nav-link.active,
+      .tm-navbar.scroll .tm-nav-link.current {
+        color: #ffffff !important;
+        background-color: var(--sx-blue-primary) !important;
+      }
+
+      /* Give in-page anchors (About Us, Experience, Contact) breathing room below the fixed bar when jumped to */
+      #AboutUs,
+      #gallery,
+      #contact {
+        scroll-margin-top: 80px;
+      }
+      @media (max-width: 991px) {
+        .tm-navbar.scroll .navbar-collapse,
+        .tm-navbar .navbar-collapse.show {
+          background: var(--sx-blue-navy);
+          border-radius: 0 0 12px 12px;
+        }
+        .tm-navbar.scroll .tm-nav-link {
+          color: #ffffff !important;
+        }
+        .tm-navbar.scroll .dropdown-toggle::after {
+          border-top-color: #ffffff;
+        }
+      }
+
+      /* Nav link gold underline accent */
+      .tm-nav-link {
+        position: relative;
+      }
+      .tm-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        width: 0;
+        height: 2px;
+        background: var(--sx-gold);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .tm-nav-link:hover::after,
+      .tm-nav-link.active::after,
+      .tm-nav-link.current::after {
+        width: 60%;
+      }
+
+      /* Floating particles effect */
+      .hero-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .hero-particles span {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+      }
+      .hero-particles span:nth-child(1) {
+        left: 10%;
+        top: 20%;
+        animation-delay: 0s;
+        animation-duration: 7s;
+      }
+      .hero-particles span:nth-child(2) {
+        left: 25%;
+        top: 60%;
+        animation-delay: 1s;
+        animation-duration: 5s;
+        width: 6px;
+        height: 6px;
+      }
+      .hero-particles span:nth-child(3) {
+        left: 50%;
+        top: 30%;
+        animation-delay: 2s;
+        animation-duration: 8s;
+      }
+      .hero-particles span:nth-child(4) {
+        left: 70%;
+        top: 70%;
+        animation-delay: 0.5s;
+        animation-duration: 6s;
+        width: 5px;
+        height: 5px;
+      }
+      .hero-particles span:nth-child(5) {
+        left: 85%;
+        top: 40%;
+        animation-delay: 3s;
+        animation-duration: 7s;
+      }
+      .hero-particles span:nth-child(6) {
+        left: 40%;
+        top: 80%;
+        animation-delay: 1.5s;
+        animation-duration: 5.5s;
+        width: 3px;
+        height: 3px;
+      }
+
+      /* Hero Text */
+      .tm-hero-text-container-inner {
+      }
+      .tm-hero-title {
+        font-family: var(--sx-font-serif) !important;
+        font-weight: 500 !important;
+        letter-spacing: -0.01em;
+        font-size: 4rem !important;
+        color: #ffffff !important;
+        text-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.35),
+          0 8px 40px rgba(0, 0, 0, 0.35) !important;
+        margin-bottom: 10px;
+      }
+      .tm-hero-subtitle {
+        font-family: var(--sx-font) !important;
+        font-weight: 400 !important;
+        font-size: 0.95rem !important;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--sx-gold);
+        opacity: 1;
+        text-shadow: 0 2px 15px rgba(0, 0, 0, 0.35) !important;
+      }
+
+      /* Hero CTA Button */
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: #ffffff;
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font);
+        font-weight: 700;
+        font-size: 1.05rem;
+        padding: 16px 40px;
+        border-radius: 60px;
+        border: 2px solid #ffffff;
+        outline: none;
+        cursor: pointer;
+        transition: all var(--sx-transition);
+        box-shadow: 0 10px 34px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        animation: slideDown 0.9s ease both;
+        animation-delay: 0.3s;
+      }
+      .hero-cta:hover {
+        background: var(--sx-blue-navy);
+        color: #ffffff;
+        border-color: var(--sx-gold);
+        transform: translateY(-3px);
+        box-shadow: 0 18px 50px rgba(9, 26, 48, 0.5);
+      }
+      .hero-cta:active {
+        transform: translateY(-1px) scale(0.98);
+      }
+      .hero-cta i {
+        transition: transform 0.3s ease;
+      }
+      .hero-cta:hover i {
+        transform: translateX(4px);
+      }
+
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+        cursor: pointer;
+      }
+      .scroll-indicator .mouse {
+        width: 26px;
+        height: 42px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 15px;
+        position: relative;
+        margin: 0 auto 8px;
+      }
+      .scroll-indicator .mouse .wheel {
+        width: 4px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 2px;
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: scrollWheel 1.5s ease-in-out infinite;
+      }
+      @keyframes scrollWheel {
+        0% {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(-50%) translateY(12px);
+        }
+      }
+      .scroll-indicator span {
+        display: block;
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+      }
+
+      /* --- ABOUT US SECTION --- */
+      #AboutUs {
+        background: var(--sx-bg-light);
+        position: relative;
+      }
+      #AboutUs::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        border-radius: 4px;
+        background: var(--sx-gold);
+      }
+
+      .tm-section-title {
+        font-family: var(--sx-font-serif) !important;
+        font-weight: 600 !important;
+        font-size: 2.6rem;
+        letter-spacing: -0.01em;
+        color: var(--sx-blue-navy);
+        position: relative;
+        display: inline-block;
+      }
+      .tm-section-title::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 3px;
+        margin: 14px auto 0;
+        border-radius: 3px;
+        background: var(--sx-gold);
+      }
+
+      .tm-intro-text {
+        font-size: 1.1rem;
+        line-height: 1.85;
+        color: #47525d;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Service Cards — Premium Glass Effect */
+      .service-card {
+        background: #ffffff !important;
+        border: 1px solid var(--sx-card-border) !important;
+        border-radius: var(--sx-radius) !important;
+        padding: 48px 38px !important;
+        text-align: center;
+        box-shadow: var(--sx-shadow-sm) !important;
+        transition: all var(--sx-transition) !important;
+        position: relative;
+        overflow: hidden;
+      }
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--sx-gold);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .service-card:hover::before {
+        opacity: 1;
+      }
+      .service-card:hover {
+        transform: translateY(-12px) !important;
+        box-shadow: var(--sx-shadow-lg) !important;
+        border-color: rgba(51, 119, 170, 0.2) !important;
+      }
+
+      /* Service Icon — Solid Ring */
+      .service-icon {
+        width: 100px !important;
+        height: 100px !important;
+        margin: 0 auto 32px !important;
+        border-radius: 50% !important;
+        background: #eaf1fa !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: all var(--sx-transition) !important;
+        position: relative;
+      }
+      .service-icon::after {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        background: var(--sx-blue-primary);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .service-card:hover .service-icon {
+        background: var(--sx-blue-navy) !important;
+        transform: scale(1.08);
+      }
+      .service-card:hover .service-icon::after {
+        opacity: 1;
+      }
+      .service-icon i {
+        font-size: 40px !important;
+        color: var(--sx-blue-navy);
+        transition: all var(--sx-transition) !important;
+      }
+      .service-card:hover .service-icon i {
+        color: #ffffff;
+      }
+
+      .service-card h2 {
+        font-family: var(--sx-font-serif) !important;
+        font-weight: 600 !important;
+        font-size: 1.5rem !important;
+        color: var(--sx-blue-navy) !important;
+        margin-bottom: 14px !important;
+      }
+      .service-card p {
+        color: #566270 !important;
+        font-size: 1rem !important;
+        line-height: 1.7 !important;
+      }
+
+      /* Learn More Button */
+      .learn-btn {
+        margin-top: auto !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100% !important;
+        padding: 14px 24px !important;
+        border: 2px solid var(--sx-blue-primary) !important;
+        border-radius: 60px !important;
+        text-decoration: none !important;
+        color: var(--sx-blue-primary) !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        font-family: var(--sx-font) !important;
+        transition: all var(--sx-transition) !important;
+        position: relative;
+        overflow: hidden;
+      }
+      .learn-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--sx-blue-navy);
+        border-radius: 60px;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+        z-index: 0;
+      }
+      .learn-btn span,
+      .learn-btn i {
+        position: relative;
+        z-index: 1;
+      }
+      .learn-btn:hover::before {
+        transform: scaleX(1);
+      }
+      .learn-btn:hover {
+        color: #ffffff !important;
+        border-color: var(--sx-blue-primary) !important;
+        box-shadow: 0 8px 24px rgba(51, 119, 170, 0.25);
+      }
+
+      /* --- INDUSTRY EXPERIENCE (GALLERY) SECTION --- */
+      #gallery {
+        background: #ffffff;
+        position: relative;
+      }
+      #gallery .tm-section-desc {
+        color: #4a5563;
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 680px;
+      }
+
+      /* Gallery hover effect enhancement */
+      figure.effect-honey {
+        border-radius: var(--sx-radius-sm) !important;
+        overflow: hidden !important;
+        box-shadow: var(--sx-shadow-sm);
+        transition: all var(--sx-transition);
+      }
+      figure.effect-honey:hover {
+        box-shadow: var(--sx-shadow-md);
+        transform: translateY(-4px);
+      }
+      figure.effect-honey img {
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease !important;
+      }
+      figure.effect-honey:hover img {
+        opacity: 0.25 !important;
+        transform: scale(1.08);
+      }
+      figure.effect-honey figcaption::before {
+        background: var(--sx-gold) !important;
+        height: 4px !important;
+        border-radius: 0 0 var(--sx-radius-sm) var(--sx-radius-sm);
+      }
+
+      /* Partner Logos Strip */
+      .partner-logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        padding: 50px 20px 20px;
+        margin-top: 20px;
+        position: relative;
+      }
+      .partner-logos::before {
+        content: "Trusted Software Partners";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--sx-blue-navy);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .partner-logo-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        padding: 8px 16px;
+        border-radius: var(--sx-radius-sm);
+        background: #ffffff;
+        border: 1px solid rgba(10, 58, 112, 0.12);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: all var(--sx-transition);
+      }
+      .partner-logo-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--sx-shadow-md);
+        border-color: var(--sx-blue-primary);
+      }
+      .partner-logo-item img {
+        max-width: 120px;
+        max-height: 44px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        filter: none !important;
+        opacity: 1 !important;
+        transition: all 0.3s ease;
+      }
+
+      /* --- CONTACT CTA SECTION --- */
+      #contact {
+        background: var(--sx-blue-navy) !important;
+        background-image: none !important;
+        min-height: auto !important;
+        padding: 100px 0 100px !important;
+        position: relative !important;
+        overflow: hidden;
+      }
+
+      .contact-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 640px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .contact-inner h2 {
+        font-family: var(--sx-font-serif) !important;
+        font-weight: 600;
+        font-size: 2.8rem;
+        color: #ffffff;
+        margin-bottom: 20px;
+        letter-spacing: -0.01em;
+      }
+      .contact-inner p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 40px;
+      }
+
+      /* Contact CTA Button */
+      .contact-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: #ffffff;
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font);
+        font-weight: 600;
+        font-size: 1.05rem;
+        padding: 18px 44px;
+        border-radius: 60px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all var(--sx-transition);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 0.02em;
+      }
+      .contact-cta:hover {
+        background: transparent;
+        color: #ffffff;
+        border: 2px solid var(--sx-gold);
+        box-shadow: 0 8px 40px rgba(201, 161, 90, 0.25);
+        transform: translateY(-3px);
+      }
+      .contact-cta:active {
+        transform: translateY(-1px) scale(0.98);
+      }
+      .contact-cta i {
+        transition: transform 0.3s ease;
+      }
+      .contact-cta:hover i {
+        transform: translateX(4px);
+      }
+
+      /* --- FOOTER OVERHAUL --- */
+      .site-footer {
+        background: var(--sx-blue-deep);
+        border-top: 3px solid var(--sx-gold);
+        color: #ffffff;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+      }
+      .footer-main {
+        padding: 56px 0 28px;
+      }
+      .footer-brand h5 {
+        font-family: var(--sx-font);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #ffffff;
+      }
+      .footer-brand .tagline {
+        font-size: 0.92rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 16px;
+        line-height: 1.5;
+      }
+      .footer-brand .desc {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.65;
+      }
+      .footer-badge {
+        display: inline-flex;
+        align-items: center;
+      }
+      .footer-badge img {
+        height: 52px;
+        width: auto;
+        display: block;
+      }
+      .footer-badge img:last-child {
+        height: 44px;
+      }
+
+      .footer-contact h5 {
+        font-family: var(--sx-font);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        color: #ffffff;
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 14px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.3s ease;
+      }
+      .footer-contact-item:hover {
+        color: #ffffff;
+      }
+      .footer-contact-item i {
+        width: 18px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 3px;
+        flex-shrink: 0;
+        transition: color 0.3s ease;
+      }
+      .footer-contact-item:hover i {
+        color: var(--sx-gold);
+      }
+      .footer-contact-item a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .footer-contact-item a:hover {
+        color: #ffffff;
+      }
+
+      /* Social Links */
+      .footer-social {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        margin-top: 28px;
+        padding-top: 24px;
+        text-align: center;
+      }
+      .footer-social-row {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+      }
+      .footer-badge {
+        grid-column: 1;
+        justify-self: start;
+        margin-left: 75px;
+      }
+      .footer-follow {
+        grid-column: 2;
+      }
+      .footer-social h6 {
+        font-family: var(--sx-font);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 1.1rem;
+        transition: all var(--sx-transition);
+        text-decoration: none;
+      }
+      .social-icon:hover {
+        background: var(--sx-gold);
+        border-color: var(--sx-gold);
+        transform: translateY(-3px);
+        color: var(--sx-blue-deep);
+      }
+
+      /* Footer — mobile: stack badge + follow row instead of the fixed 3-col grid,
+         since the hardcoded margin-left on .footer-badge only makes sense on wide screens */
+      @media (max-width: 991px) {
+        .footer-main {
+          padding: 44px 0 20px;
+          text-align: center;
+        }
+        .footer-brand,
+        .footer-contact {
+          text-align: center !important;
+        }
+        .footer-contact-item {
+          justify-content: center;
+        }
+        .footer-social-row {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+        .footer-badge {
+          grid-column: unset;
+          justify-self: unset;
+          margin-left: 0;
+        }
+        .footer-follow {
+          grid-column: unset;
+        }
+      }
+
+      /* Footer Bottom Bar */
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.15);
+        padding: 14px 0;
+        text-align: center;
+      }
+      .footer-bottom p {
+        margin: 0;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.02em;
+      }
+
+      /* ============================================================
+       TYPOGRAPHY / FONT EFFECTS
+       ============================================================ */
+
+      /* Hero title — soft shimmering gradient sweep across the serif type */
+      .tm-hero-title {
+        background: linear-gradient(
+          100deg,
+          #ffffff 20%,
+          #bcd8f2 40%,
+          #ffffff 60%,
+          #bcd8f2 80%
+        ) !important;
+        background-size: 250% auto !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        color: transparent !important;
+        animation: slideDown 0.9s ease both, shimmer 5s linear infinite 0.9s;
+      }
+
+      /* Hero subtitle — gentle reveal on load */
+      .tm-hero-subtitle {
+        animation: slideDown 0.9s ease both;
+        animation-delay: 0.15s;
+      }
+
+      /* Section titles — subtle two-tone gradient fill instead of flat color */
+      .tm-section-title {
+        background: linear-gradient(
+          100deg,
+          var(--sx-blue-navy) 0%,
+          var(--sx-blue-primary) 50%,
+          var(--sx-blue-navy) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+
+      /* Contact CTA heading — same shimmer treatment as the hero, echoed on the navy panel */
+      .contact-inner h2 {
+        background: linear-gradient(
+          100deg,
+          #ffffff 20%,
+          #9fc3e8 50%,
+          #ffffff 80%
+        );
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: shimmer 6s linear infinite;
+      }
+
+      /* Service card headings — headline tightens and tints on hover */
+      .service-card h2 {
+        transition:
+          letter-spacing 0.35s ease,
+          color 0.35s ease !important;
+      }
+      .service-card:hover h2 {
+        letter-spacing: 0.015em;
+        color: var(--sx-blue-primary) !important;
+      }
+
+      /* Nav links — type breathes slightly wider on hover, paired with the gold underline */
+      .tm-nav-link {
+        transition: letter-spacing 0.3s ease;
+      }
+      .tm-nav-link:hover {
+        letter-spacing: 0.03em;
+      }
+
+      /* Footer headings — small spacing lift for a more editorial feel */
+      .footer-brand h5,
+      .footer-contact h5 {
+        letter-spacing: 0.02em;
+      }
+
+      /* Gallery captions — light spacing lift so the overlay type feels premium */
+      figure.effect-honey figcaption h2 {
+        letter-spacing: 0.03em;
+      }
+
+      /* --- RESPONSIVE ADJUSTMENTS --- */
+      @media (max-width: 991px) {
+        .tm-hero-title {
+          font-size: 2.4rem !important;
+        }
+        .tm-hero-subtitle {
+          font-size: 0.95rem !important;
+          letter-spacing: 0.04em;
+        }
+        .hero-cta {
+          font-size: 0.95rem;
+          padding: 14px 32px;
+        }
+        .scroll-indicator {
+          display: none;
+        }
+        .contact-inner h2 {
+          font-size: 2rem;
+        }
+        .partner-logos {
+          gap: 14px;
+        }
+        .partner-logo-item {
+          height: 48px;
+          padding: 6px 12px;
+        }
+        .partner-logo-item img {
+          max-height: 34px;
+          max-width: 90px;
+        }
+        #contact {
+          padding: 70px 0 70px !important;
+        }
+      }
+      @media (max-width: 440px) {
+        .tm-hero-title {
+          font-size: 2rem !important;
+        }
+        .hero-cta {
+          font-size: 0.9rem;
+          padding: 13px 28px;
+          width: 88%;
+        }
+      }
+
+      /* --- Mobile Menu Dropdown Fix (preserved from original) --- */
+      @media (max-width: 991px) {
+        #tmNav .navbar-nav:has(.dropdown-menu.show) {
+          max-width: 295px;
+        }
+
+        #tmNav .dropdown-menu {
+          position: static;
+          float: none;
+          width: max-content;
+          max-width: 295px;
+          margin: 0 -10px !important;
+          border: none;
+          box-shadow: none;
+          background-color: transparent;
+        }
+
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item {
+          white-space: nowrap;
+          font-size: 0.72rem !important;
+          padding: 6px 8px 6px 10px !important;
+          color: rgba(255, 255, 255, 0.75) !important;
+        }
+
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:hover,
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:focus,
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:active {
+          color: #ffffff !important;
+          background-color: transparent !important;
+        }
+
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item i {
+          width: 12px !important;
+          margin-right: 4px !important;
+          color: rgba(255, 255, 255, 0.55) !important;
+        }
+
+        #tmNav .dropdown-toggle,
+        #tmNav .dropdown-toggle.show,
+        #tmNav .dropdown-toggle:focus,
+        #tmNav .dropdown-toggle:active {
+          color: #ffffff !important;
+        }
+      }
+
+      /* Keep the services toggle's open/hover state consistent after the
+         navbar switches to its white scrolled background. */
+      #tmNav .nav-item.dropdown > .dropdown-toggle:hover,
+      #tmNav .nav-item.dropdown > .dropdown-toggle.show {
+        color: #ffffff !important;
+        background-color: var(--sx-blue-primary) !important;
+      }
+      #tmNav .nav-item.dropdown > .dropdown-toggle:hover::after,
+      #tmNav .nav-item.dropdown > .dropdown-toggle.show::after {
+        border-top-color: #ffffff;
       }
     </style>
+  </head>
 
-    <div class="container" style="padding: 40px 0 20px 0;">
-      <div class="row justify-content-center">
+  <body>
+    <section id="infinite" class="text-white tm-font-big tm-parallax">
+      <!-- Floating particles -->
+      <div class="hero-particles">
+        <span></span><span></span><span></span> <span></span><span></span
+        ><span></span>
+      </div>
 
-        <div class="col-11 col-md-5 col-lg-5 mb-4 mb-md-0 mx-auto text-left">
-          <div style="margin-bottom: 20px;">
-            <h5 style="font-size: 18px; font-weight: 600; margin-bottom: 4px; color: #fff;">SharpX Accountancy Services
-            </h5>
-
-            <p
-              style="font-size: 15px; line-height: 1.4; color: rgba(255,255,255,0.85); margin-top: 0; margin-bottom: 14px;">
-              Digitalized Solutions For A Smarter Tomorrow.</p>
-
-            <p
-              style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.85); margin-top: 14px; margin-bottom: 0;">
-              Expert accounting, tax, and advisory services tailored to your business needs.</p>
+      <nav class="navbar navbar-expand-lg tm-navbar" id="tmNav">
+        <div class="container px-4 px-md-3">
+          <div class="tm-next">
+            <a href="#sharpx" class="navbar-brand">
+              <img
+                src="img/Logo_NoBackground.png"
+                alt="SharpX Accountancy logo"
+                class="img-fluid"
+              />
+            </a>
           </div>
-        </div>
 
-        <div class="col-11 col-md-5 col-lg-4 pl-md-4 pl-lg-5 mx-auto text-left">
-          <h5 style="font-size: 18px; font-weight: 600; margin-bottom: 12px; color: #fff;">Get In Touch</h5>
-          <div style="margin-bottom: 8px;">
-            <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.85);">
-              <i class="far fa-envelope" style="margin-right: 10px; color: #fff; width: 16px;"></i>
-              <a href="mailto:info@sharpxaccountancy.co.uk"
-                style="color: rgba(255,255,255,0.85); text-decoration: none;">info@sharpxaccountancy.co.uk</a>
-            </p>
-          </div>
-          <div style="margin-bottom: 8px;">
-            <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.85);">
-              <i class="fas fa-phone" style="margin-right: 10px; color: #fff; width: 16px;"></i>
-              <a href="tel:+447873389958" style="color: rgba(255,255,255,0.85); text-decoration: none;">+44 7873
-                389958</a>
-            </p>
-          </div>
-          <div>
-            <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.85);">
-              <i class="fas fa-map-marker-alt" style="margin-right: 10px; color: #fff; width: 16px;"></i>
-              <a
+          <button
+            class="navbar-toggler mr-1"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="#navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            style="margin-right: 5px"
+          >
+            <i class="fas fa-bars navbar-toggler-icon"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#infinite">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#AboutUs">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link tm-nav-link dropdown-toggle"
                   href="#"
-                  style="
-                    color: rgba(255, 255, 255, 0.85);
-                    text-decoration: none;
-                  "
-                  >199 Oldham Road, Failsworth, <br>&nbsp &nbsp &nbsp &nbsp; Manchester M35 0BX, GB</a
+                  id="servicesDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
                 >
+                  Our Services
+                </a>
+                <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                  <a class="dropdown-item" href="details/bookkeeping.html">
+                    <i class="fas fa-file-invoice"></i> Bookkeeping, VAT &amp;
+                    CIS Returns
+                  </a>
+                  <a class="dropdown-item" href="details/selfAssessment.html">
+                    <i class="fas fa-file-invoice-dollar"></i> Self-Assessment
+                  </a>
+                  <a class="dropdown-item" href="details/accounts.html">
+                    <i class="fas fa-calculator"></i> Accounts, Corporation Tax
+                    &amp; Payroll
+                  </a>
+                  <a class="dropdown-item" href="details/advisory.html">
+                    <i class="fas fa-users"></i> Advisory
+                  </a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#gallery">Experience</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="contactForm.html"
+                  >Contact</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="Forms.html"
+                  >Quote</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+          <h2 class="tm-hero-title">SharpX Accountancy</h2>
+          <p class="tm-hero-subtitle">
+            Digitalized Solutions For A Smarter Tomorrow
+          </p>
+        </div>
+        <div
+          class="tm-next tm-intro-next text-center"
+          style="
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 20px;
+          "
+        >
+          <a href="contactForm.html" class="hero-cta">
+            Book A Free Consultation <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="scroll-indicator"
+        onclick="
+          document
+            .getElementById('AboutUs')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+      >
+        <div class="mouse"><div class="wheel"></div></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <section id="AboutUs" class="tm-section-pad-top">
+      <div class="container about-section">
+        <div class="row tm-content-box">
+          <div class="col-lg-12 col-xl-12">
+            <div
+              class="tm-intro-text-container reveal"
+              style="text-align: center"
+            >
+              <h2 class="tm-text-primary mb-4 tm-section-title">About Us</h2>
+              <p class="mb-4 tm-intro-text">
+                At SharpX, we provide a wide range of specialized Accounting,
+                Tax & Advisory services tailored to meet your business needs.
+                Our team of experienced professionals is dedicated to providing
+                customized solutions that address the unique challenges and
+                opportunities of each business.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="services">
+          <div class="service-card reveal">
+            <div class="service-icon">
+              <i class="fas fa-file-invoice"></i>
+            </div>
+            <h2 class="tm-text-primary">Bookkeeping VAT &amp; CIS Returns</h2>
+            <p class="tm-intro-text">
+              Maintaining Books and HMRC-compliant filing.
+            </p>
+            <a href="details/bookkeeping.html" class="learn-btn"
+              ><span>Learn More</span> <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h2 class="tm-text-primary">Self-Assessment</h2>
+            <p class="tm-intro-text">
+              Professional tax return preparation and submission.
+            </p>
+            <a href="details/selfAssessment.html" class="learn-btn"
+              ><span>Learn More</span> <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <h2 class="tm-text-primary">
+              Monthly/Annual Accounts/Corporation Tax &amp; Payroll
+            </h2>
+            <p class="tm-intro-text">
+              Financial reporting, CT600 and payroll management.
+            </p>
+            <a href="details/accounts.html" class="learn-btn"
+              ><span>Learn More</span> <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="service-card reveal">
+            <div class="service-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h2 class="tm-text-primary">Advisory</h2>
+            <p class="tm-intro-text">
+              Strategic advice to support your business growth.
+            </p>
+            <a href="details/advisory.html" class="learn-btn"
+              ><span>Learn More</span> <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="tm-section-pad-top">
+      <div class="container tm-container-gallery">
+        <div class="row">
+          <div class="text-center col-12">
+            <h2 class="tm-text-primary tm-section-title mb-4 reveal">
+              Industry Experience
+            </h2>
+            <p class="mx-auto tm-section-desc text-center reveal">
+              Our firm delivers tailored accounting, tax, and advisory solutions
+              across key industries, from healthcare and real estate to tech and
+              construction. Reach out today to see how our deep sector expertise
+              can help your business stay compliant and grow.
             </p>
           </div>
         </div>
-
-      </div>
-
-      <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: 25px; padding-top: 15px;">
-        <div style="text-align: center;">
-          <h6 style="font-size: 14px; font-weight: 600; margin-bottom: 10px; color: #fff;">Follow Us</h6>
-          <div style="display: flex; justify-content: center; gap: 20px;">
-            <a href="https://www.linkedin.com/company/sharpx-accountancy-services-ltd/" class="item-link"
-              target="_blank" rel="nofollow noopener noreferrer"
-              style="color: #fff; font-size: 20px; transition: color 0.3s;"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/sharpxaccountancy?utm_source=qr&igsh=Mm0xczRpaTZvbHU4" class="item-link"
-              target="_blank" rel="nofollow noopener noreferrer"
-              style="color: #fff; font-size: 20px; transition: color 0.3s;"><i class="fab fa-instagram"></i></a>
+        <div class="row">
+          <div class="col-12">
+            <div class="mx-auto tm-gallery-container reveal">
+              <div class="grid tm-gallery">
+                <a href="img/T01.jpg">
+                  <figure class="effect-honey tm-gallery-item">
+                    <img src="img/T01.jpg" alt="Image 1" class="img-fluid" />
+                    <figcaption>
+                      <h2>
+                        <i>Food & <span>Travel</span></i>
+                      </h2>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a href="img/T02.jpg">
+                  <figure class="effect-honey tm-gallery-item">
+                    <img src="img/T02.jpg" alt="Image 2" class="img-fluid" />
+                    <figcaption>
+                      <h2>
+                        <i>Wholesale & <span>Retail</span></i>
+                      </h2>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a href="img/Doctor Patient Consultation.jpg">
+                  <figure class="effect-honey tm-gallery-item">
+                    <img
+                      src="img/Doctor Patient Consultation.jpg"
+                      alt="Image 3"
+                      class="img-fluid"
+                    />
+                    <figcaption>
+                      <h2>
+                        <i><span>Health & </span>Care</i>
+                      </h2>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a href="img/T04.jpg">
+                  <figure class="effect-honey tm-gallery-item">
+                    <img src="img/T04.jpg" alt="Image 4" class="img-fluid" />
+                    <figcaption>
+                      <h2>
+                        <i>Construction & <span>Real Estate</span></i>
+                      </h2>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a href="img/IT.jpg">
+                  <figure class="effect-honey tm-gallery-item">
+                    <img src="img/IT.jpg" alt="Image 6" class="img-fluid" />
+                    <figcaption>
+                      <h2>
+                        <i><span>Information </span>Technology</i>
+                      </h2>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a href="img/Automobile.jpg">
+                  <figure class="effect-honey tm-gallery-item">
+                    <img
+                      src="img/Automobile.jpg"
+                      alt="Image 5"
+                      class="img-fluid"
+                    />
+                    <figcaption>
+                      <h2>
+                        <i><span>Automobile</span></i>
+                      </h2>
+                    </figcaption>
+                  </figure>
+                </a>
+              </div>
+            </div>
+            <!-- Partner Logos -->
+            <div class="partner-logos">
+              <div class="partner-logo-item reveal">
+                <img src="img/Hubdoc.jpeg" alt="Hubdoc" />
+              </div>
+              <div class="partner-logo-item reveal">
+                <img src="img/Bright_Pay.jpeg" alt="BrightPay" />
+              </div>
+              <div class="partner-logo-item reveal">
+                <img src="img/Dext.jpeg" alt="Dext" />
+              </div>
+              <div class="partner-logo-item reveal">
+                <img src="img/QB.jpeg" alt="QuickBooks" />
+              </div>
+              <div class="partner-logo-item reveal">
+                <img src="img/Xero.jpeg" alt="Xero" />
+              </div>
+              <div class="partner-logo-item reveal">
+                <img src="img/Iris.jpeg" alt="IRIS" />
+              </div>
+              <div class="partner-logo-item reveal">
+                <img src="img/Sage.jpeg" alt="Sage" />
+              </div>
+              <div class="partner-logo-item reveal">
+                <img src="img/Taxcalc.jpeg" alt="TaxCalc" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div
-      style="background-color: #1E5A8E; border-top: 1px solid rgba(255,255,255,0.1); padding: 10px 0; text-align: center; margin-top: 1px;">
-      <p style="margin: 0; font-size: 13px; color: rgba(255,255,255,0.9);">
-        Copyright © 2035 by SharpX Accountancy Services . All rights reserved.
-      </p>
-    </div>
-  </footer>
-  <script src="js/jquery-1.9.1.min.js"></script>
-  <script src="slick/slick.min.js"></script>
-  <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
-  <script src="js/easing.min.js"></script>
-  <script src="js/jquery.singlePageNav.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script>
-    function getOffSet() {
-      var _offset = 250; // Calibrated base offset to prevent navigation lag near the page bottom
-      var windowHeight = window.innerHeight;
+    <section id="contact" class="tm-section-pad-top tm-parallax-2">
+      <div class="container">
+        <div class="contact-inner reveal">
+          <h2>Let's Work Together</h2>
+          <p>
+            Have a question or ready to streamline your finances?<br />
+            Book a free consultation and our team will get back to you within 24
+            hours.
+          </p>
+          <a href="contactForm.html" class="contact-cta">
+            Book A Free Consultation <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
-      if (windowHeight > 500) {
-        _offset = 200;
+    <footer class="site-footer">
+      <div class="container footer-main reveal">
+        <div class="row justify-content-center">
+          <div class="col-11 col-md-5 col-lg-5 mb-4 mb-md-0 mx-auto text-left">
+            <div class="footer-brand">
+              <h5>SharpX Accountancy Services</h5>
+              <p class="tagline">
+                Digitalized Solutions For A Smarter Tomorrow.
+              </p>
+              <p class="desc">
+                Expert accounting, tax, and advisory services tailored to your
+                business needs.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-11 col-md-5 col-lg-4 pl-md-4 pl-lg-5 mx-auto text-left"
+          >
+            <div class="footer-contact">
+              <h5>Get In Touch</h5>
+              <div class="footer-contact-item">
+                <i class="far fa-envelope"></i>
+                <a href="mailto:info@sharpxaccountancy.co.uk"
+                  >info@sharpxaccountancy.co.uk</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <a
+                  href="https://wa.me/447873389958"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >+44 7873 389958</a
+                >
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="#"
+                  >199 Oldham Road, Failsworth,<br />Manchester M35 0BX, GB</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-social">
+          <div class="footer-social-row">
+            <div class="footer-badge">
+              <img style="margin-right: 6px"
+                src="img/ACCA_Logo.png"
+                alt="ACCA - Association of Chartered Certified Accountants"
+              />
+              <img
+                src="img/CPAA.png"
+                alt="CPAA - Certified Public Accountants Association"
+              />
+            </div>
+            <div class="footer-follow">
+              <h6>Follow Us</h6>
+              <div class="social-icons">
+                <a
+                  href="https://www.linkedin.com/company/sharpx-accountancy-services-ltd/"
+                  class="social-icon"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/sharpxaccountancy?utm_source=qr&igsh=Mm0xczRpaTZvbHU4"
+                  class="social-icon"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          Copyright &copy; 2035 by SharpX Accountancy Services. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="js/easing.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      function getOffSet() {
+        var _offset = 250; // Calibrated base offset to prevent navigation lag near the page bottom
+        var windowHeight = window.innerHeight;
+
+        if (windowHeight > 500) {
+          _offset = 200;
+        }
+        if (windowHeight > 680) {
+          _offset = 180;
+        }
+        if (windowHeight > 830) {
+          _offset = 150;
+        }
+
+        return _offset;
       }
-      if (windowHeight > 680) {
-        _offset = 180;
+
+      function setParallaxPosition($doc, multiplier, $object) {
+        var offset = getOffSet();
+        var from_top = $doc.scrollTop(),
+          bg_css = "center " + (multiplier * from_top - offset) + "px";
+        $object.css({ "background-position": bg_css });
       }
-      if (windowHeight > 830) {
-        _offset = 150;
-      }
 
-      return _offset;
-    }
+      // Parallax function
+      // Adapted based on https://codepen.io/roborich/pen/wpAsm
+      var background_image_parallax = function ($object, multiplier, forceSet) {
+        multiplier = typeof multiplier !== "undefined" ? multiplier : 0.5;
+        multiplier = 1 - multiplier;
+        var $doc = $(document);
 
-    function setParallaxPosition($doc, multiplier, $object) {
-      var offset = getOffSet();
-      var from_top = $doc.scrollTop(),
-        bg_css = 'center ' + (multiplier * from_top - offset) + 'px';
-      $object.css({ "background-position": bg_css });
-    }
-
-    // Parallax function
-    // Adapted based on https://codepen.io/roborich/pen/wpAsm        
-    var background_image_parallax = function ($object, multiplier, forceSet) {
-      multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
-      multiplier = 1 - multiplier;
-      var $doc = $(document);
-
-      if (forceSet) {
-        setParallaxPosition($doc, multiplier, $object);
-      } else {
-        $(window).scroll(function () {
+        if (forceSet) {
           setParallaxPosition($doc, multiplier, $object);
-        });
-      }
-    };
-
-    var background_image_parallax_2 = function ($object, multiplier) {
-      multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
-      multiplier = 1 - multiplier;
-      var $doc = $(document);
-      $object.css({ "background-attachment": "fixed" });
-
-      $(window).scroll(function () {
-        if ($(window).width() > 768) {
-          var firstTop = $object.offset().top,
-            pos = $(window).scrollTop(),
-            yPos = Math.round((multiplier * (firstTop - pos)) - 186);
-
-          var bg_css = 'center ' + yPos + 'px';
-
-          $object.css({ "background-position": bg_css });
         } else {
-          $object.css({ "background-position": "center" });
-        }
-      });
-    };
-
-    $(function () {
-      // Hero Section - Background Parallax
-      background_image_parallax($(".tm-parallax"), 0.30, false);
-      background_image_parallax_2($("#contact"), 0.80);
-
-      // Handle window resize
-      window.addEventListener('resize', function () {
-        background_image_parallax($(".tm-parallax"), 0.30, true);
-      }, true);
-
-      // Detect window scroll and update navbar
-      $(window).scroll(function (e) {
-        if ($(document).scrollTop() > 120) {
-          $('.tm-navbar').addClass("scroll");
-        } else {
-          $('.tm-navbar').removeClass("scroll");
-        }
-      });
-
-      // Close mobile menu after click (but not when opening the Our Services dropdown)
-      $('#tmNav a:not(.dropdown-toggle)').on('click', function () {
-        $('.navbar-collapse').removeClass('show');
-      })
-
-      // Scroll to corresponding section with animation
-      $('#tmNav').singlePageNav({
-        'easing': 'easeInOutExpo',
-        'speed': 600,
-        'offset': 50, // FIXED: Dynamically clears out the dark hero header row background strip cleanly!
-        'filter': ':not([href^="team"]):not([href^="contact"]):not(.dropdown-toggle):not(.dropdown-item)'
-      });
-
-      // Add smooth scrolling to all links EXCEPT the navbar links (prevents double-scroll glitch)
-      $("a:not(.tm-nav-link)").on('click', function (event) {
-        if (this.hash !== "") {
-          event.preventDefault();
-          var hash = this.hash;
-
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top - 79 // FIXED: Applies matching clearance here as well
-          }, 600, 'easeInOutExpo', function () {
-            window.location.hash = hash;
+          $(window).scroll(function () {
+            setParallaxPosition($doc, multiplier, $object);
           });
-        } // End if
-      });
+        }
+      };
 
-      // Pop up
-      $('.tm-gallery').magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        gallery: { enabled: true }
-      });
+      var background_image_parallax_2 = function ($object, multiplier) {
+        multiplier = typeof multiplier !== "undefined" ? multiplier : 0.5;
+        multiplier = 1 - multiplier;
+        var $doc = $(document);
+        $object.css({ "background-attachment": "fixed" });
 
-      // Gallery
-      $('.tm-gallery').slick({
-        dots: true,
-        infinite: false,
-        slidesToShow: 5,
-        slidesToScroll: 2,
-        responsive: [
-          {
-            breakpoint: 1199,
-            settings: {
-              slidesToShow: 4,
-              slidesToScroll: 2
-            }
-          },
-          {
-            breakpoint: 991,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 2
-            }
-          },
-          {
-            breakpoint: 767,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      });
+        $(window).scroll(function () {
+          if ($(window).width() > 768) {
+            var firstTop = $object.offset().top,
+              pos = $(window).scrollTop(),
+              yPos = Math.round(multiplier * (firstTop - pos) - 186);
 
-      // ==========================================
-      // WEB3FORMS AJAX INTEGRATION
-      // ==========================================
-      $('#tm-contact-form').on('submit', function (e) {
-        e.preventDefault();
+            var bg_css = "center " + yPos + "px";
 
-        var $form = $(this);
-        var $result = $('#form-result');
-        var $submitBtn = $form.find('.tm-btn-submit');
-
-        // Collect input fields 
-        var formData = {
-          access_key: 'faa355b8-673e-4189-b8de-37e8b9719f9e',
-          name: $('#name').val(),
-          email: $('#email').val(),
-          message: $('#message').val()
-        };
-
-        // Set visual UI loading state
-        $submitBtn.prop('disabled', true);
-        $result.removeClass('form-success form-error').addClass('form-loading').html('Sending message...');
-
-        // Post payload directly to Web3Forms API
-        $.ajax({
-          url: 'https://web3forms.com',
-          type: 'POST',
-          contentType: 'application/json',
-          dataType: 'json',
-          data: JSON.stringify(formData),
-          success: function (response) {
-            if (response.success) {
-              $result.removeClass('form-loading').addClass('form-success').html('Thank you! Message sent successfully.');
-              $form[0].reset(); // Clear input boxes
-            } else {
-              $result.removeClass('form-loading').addClass('form-error').html(response.message);
-              $submitBtn.prop('disabled', false);
-            }
-          },
-          error: function (xhr, status, error) {
-            $result.removeClass('form-loading').addClass('form-error').html('Network error. Please try again later.');
-            $submitBtn.prop('disabled', false);
-          },
-          complete: function () {
-            // Reset status text visibility window after 5 seconds
-            setTimeout(function () {
-              $result.html('').removeClass('form-success form-error form-loading');
-              $submitBtn.prop('disabled', false);
-            }, 5000);
+            $object.css({ "background-position": bg_css });
+          } else {
+            $object.css({ "background-position": "center" });
           }
         });
+      };
+
+      // Scroll-triggered fade-up reveal for any .reveal element
+      (function () {
+        var revealEls = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window) || !revealEls.length) {
+          // Fallback: just show everything if unsupported
+          revealEls.forEach(function (el) {
+            el.classList.add("visible");
+          });
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
+        );
+        revealEls.forEach(function (el) {
+          observer.observe(el);
+        });
+      })();
+
+      $(function () {
+        // Hero Section - Background Parallax
+        background_image_parallax($(".tm-parallax"), 0.3, false);
+
+        // Handle window resize
+        window.addEventListener(
+          "resize",
+          function () {
+            background_image_parallax($(".tm-parallax"), 0.3, true);
+          },
+          true,
+        );
+
+        // Detect window scroll and update navbar
+        $(window).scroll(function (e) {
+          if ($(document).scrollTop() > 120) {
+            $(".tm-navbar").addClass("scroll");
+          } else {
+            $(".tm-navbar").removeClass("scroll");
+          }
+        });
+
+        // Close mobile menu after click (but not when opening the Our Services dropdown)
+        $("#tmNav a:not(.dropdown-toggle)").on("click", function () {
+          $(".navbar-collapse").removeClass("show");
+        });
+
+        // Scroll to corresponding section with animation
+        $("#tmNav").singlePageNav({
+          easing: "easeInOutExpo",
+          speed: 600,
+          offset: 50, // FIXED: Dynamically clears out the dark hero header row background strip cleanly!
+          filter:
+            ':not([href*=".html"]):not(.dropdown-toggle):not(.dropdown-item)',
+        });
+
+        // Add smooth scrolling to all links EXCEPT the navbar links (prevents double-scroll glitch)
+        $("a:not(.tm-nav-link)").on("click", function (event) {
+          if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+
+            $("html, body").animate(
+              {
+                scrollTop: $(hash).offset().top - 79, // FIXED: Applies matching clearance here as well
+              },
+              600,
+              "easeInOutExpo",
+              function () {
+                window.location.hash = hash;
+              },
+            );
+          } // End if
+        });
+
+        // Pop up
+        $(".tm-gallery").magnificPopup({
+          delegate: "a",
+          type: "image",
+          gallery: { enabled: true },
+        });
+
+        // Gallery
+        $(".tm-gallery").slick({
+          dots: true,
+          infinite: false,
+          slidesToShow: 5,
+          slidesToScroll: 2,
+          responsive: [
+            {
+              breakpoint: 1199,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 2,
+              },
+            },
+            {
+              breakpoint: 991,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 2,
+              },
+            },
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+              },
+            },
+          ],
+        });
+
+        // ==========================================
+        // WEB3FORMS AJAX INTEGRATION
+        // ==========================================
+        $("#tm-contact-form").on("submit", function (e) {
+          e.preventDefault();
+
+          var $form = $(this);
+          var $result = $("#form-result");
+          var $submitBtn = $form.find(".tm-btn-submit");
+
+          // Collect input fields
+          var formData = {
+            access_key: "faa355b8-673e-4189-b8de-37e8b9719f9e",
+            name: $("#name").val(),
+            email: $("#email").val(),
+            message: $("#message").val(),
+          };
+
+          // Set visual UI loading state
+          $submitBtn.prop("disabled", true);
+          $result
+            .removeClass("form-success form-error")
+            .addClass("form-loading")
+            .html("Sending message...");
+
+          // Post payload directly to Web3Forms API
+          $.ajax({
+            url: "https://web3forms.com",
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(formData),
+            success: function (response) {
+              if (response.success) {
+                $result
+                  .removeClass("form-loading")
+                  .addClass("form-success")
+                  .html("Thank you! Message sent successfully.");
+                $form[0].reset(); // Clear input boxes
+              } else {
+                $result
+                  .removeClass("form-loading")
+                  .addClass("form-error")
+                  .html(response.message);
+                $submitBtn.prop("disabled", false);
+              }
+            },
+            error: function (xhr, status, error) {
+              $result
+                .removeClass("form-loading")
+                .addClass("form-error")
+                .html("Network error. Please try again later.");
+              $submitBtn.prop("disabled", false);
+            },
+            complete: function () {
+              // Reset status text visibility window after 5 seconds
+              setTimeout(function () {
+                $result
+                  .html("")
+                  .removeClass("form-success form-error form-loading");
+                $submitBtn.prop("disabled", false);
+              }, 5000);
+            },
+          });
+        });
       });
-
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>

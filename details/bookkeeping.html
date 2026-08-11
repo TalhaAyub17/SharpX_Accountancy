@@ -10,11 +10,42 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../fontawesome-5.5/css/all.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/tooplate-infinite-loop.css">
 
     <style>
+      /* ============================================================
+         Design tokens shared with the main SharpX site (index.html)
+         ============================================================ */
+      :root {
+        --sx-blue-primary: #2e7ab8;
+        --sx-blue-dark: #1f4f7a;
+        --sx-blue-navy: #163a63;
+        --sx-blue-medium: #2e86c1;
+        --sx-blue-deep: #0f2a4a;
+        --sx-blue-light: #4a9fd8;
+        --sx-blue-accent: #2e86c1;
+        --sx-gold: #2e86c1;
+        --sx-gold-deep: #1b4f72;
+        --sx-gray: #5c6b7a;
+        --sx-bg-light: #eef3f9;
+        --sx-card-border: #dde6f0;
+        --sx-shadow-sm: 0 3px 14px rgba(14, 44, 80, 0.12);
+        --sx-shadow-md: 0 10px 30px rgba(14, 44, 80, 0.18);
+        --sx-shadow-lg: 0 20px 54px rgba(14, 44, 80, 0.24);
+        --sx-radius: 20px;
+        --sx-radius-sm: 12px;
+        --sx-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --sx-font: 'Inter', 'Nunito Sans', 'Raleway', sans-serif;
+        --sx-font-serif: 'Playfair Display', 'Georgia', serif;
+      }
+
       * {
         margin: 0;
         padding: 0;
@@ -34,21 +65,44 @@
         right: 0;
       }
 
+      /* Nav link gold underline accent, matches index.html */
+      .tm-nav-link {
+        position: relative;
+      }
+      .tm-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        width: 0;
+        height: 2px;
+        background: var(--sx-gold);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .tm-nav-link:hover::after,
+      .tm-nav-link.active::after,
+      .tm-nav-link.current::after {
+        width: 60%;
+      }
+
       body {
-        font-family: "Nunito Sans", sans-serif;
+        font-family: var(--sx-font) !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 
         background:
           radial-gradient(
             circle at top left,
-            rgba(10, 58, 112, 0.07) 0%,
+            rgba(46, 83, 148, 0.07) 0%,
             transparent 380px
           ),
           radial-gradient(
             circle at bottom right,
-            rgba(10, 58, 112, 0.06) 0%,
+            rgba(46, 83, 148, 0.06) 0%,
             transparent 420px
           ),
-          linear-gradient(180deg, #fdfefe 0%, #f8fbff 100%);
+          linear-gradient(180deg, #fdfefe 0%, var(--sx-bg-light) 100%);
 
         background-attachment: fixed;
 
@@ -59,138 +113,152 @@
 
       body::before {
         content: "";
-
         position: fixed;
-
         width: 500px;
-
         height: 500px;
-
-        background: rgba(10, 58, 112, 0.05);
-
+        background: rgba(51, 119, 170, 0.06);
         border-radius: 50%;
-
         top: -220px;
-
         left: -220px;
-
         z-index: -2;
-
         pointer-events: none;
       }
 
       body::after {
         content: "";
-
         position: fixed;
-
         width: 380px;
-
         height: 380px;
-
-        background: rgba(10, 58, 112, 0.04);
-
+        background: rgba(56, 187, 221, 0.05);
         border-radius: 50%;
-
         bottom: -180px;
-
         right: -150px;
-
         z-index: -2;
-
         pointer-events: none;
+      }
+
+      /* --- Scroll reveal, shared with index.html --- */
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- Per-line/item text fade-in, staggered --- */
+      .reveal-item {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal-item.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       .page-container {
         max-width: 1250px;
-
         margin: 90px auto 40px;
-
         background: #ffffff;
-
-        border-radius: 22px;
-
+        border-radius: var(--sx-radius);
         padding: 55px;
-
-        box-shadow:
-          0 20px 50px rgba(10, 58, 112, 0.08),
-          0 5px 15px rgba(10, 58, 112, 0.04);
-
+        box-shadow: var(--sx-shadow-md);
+        border: 1px solid var(--sx-card-border);
         position: relative;
+      }
+
+      .page-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        border-radius: 4px;
+        background: var(--sx-gold);
       }
 
       .main-title {
         text-align: center;
-
-        font-size: 36px;
-
+        font-family: var(--sx-font-serif);
         font-weight: 600;
-
-        color: #0a3a70;
-
+        font-size: 2.6rem;
+        letter-spacing: -0.01em;
+        color: var(--sx-blue-navy);
         margin-bottom: 15px;
+        position: relative;
+        display: block;
+      }
+
+      .main-title::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 3px;
+        margin: 14px auto 0;
+        border-radius: 3px;
+        background: var(--sx-gold);
       }
 
       .layout {
         display: flex;
-
         justify-content: space-between;
-
         align-items: flex-start;
-
         gap: 40px;
       }
 
       .left {
         width: 63%;
-
         min-width: 0;
-
         background: #ffffff;
-
-        border: 1px solid #edf3fb;
-
-        border-radius: 18px;
-
+        border: 1px solid var(--sx-card-border);
+        border-radius: var(--sx-radius);
         padding: 35px;
+        box-shadow: var(--sx-shadow-sm);
+        transition: box-shadow var(--sx-transition), border-color var(--sx-transition);
+      }
 
-        box-shadow: 0 10px 25px rgba(10, 58, 112, 0.05);
+      .left:hover {
+        box-shadow: var(--sx-shadow-md);
+        border-color: rgba(51, 119, 170, 0.2);
       }
 
       .right {
         width: 37%;
-
         min-width: 0;
-
         background: #ffffff;
-
-        border: 1px solid #edf3fb;
-
-        border-radius: 18px;
-
+        border: 1px solid var(--sx-card-border);
+        border-radius: var(--sx-radius);
         padding: 30px;
+        box-shadow: var(--sx-shadow-sm);
+        transition: box-shadow var(--sx-transition), border-color var(--sx-transition);
+      }
 
-        box-shadow: 0 10px 25px rgba(10, 58, 112, 0.05);
+      .right:hover {
+        box-shadow: var(--sx-shadow-md);
+        border-color: rgba(51, 119, 170, 0.2);
       }
 
       .service-title {
         display: inline-block;
-
-        background: #0a3a70;
-
+        font-family: var(--sx-font-serif);
+        background: linear-gradient(135deg, var(--sx-blue-primary), var(--sx-blue-navy));
         color: #ffffff;
-
         font-size: 24px;
-
         font-weight: 600;
-
         padding: 12px 22px;
-
-        border-radius: 10px;
-
+        border-radius: var(--sx-radius-sm);
         margin-bottom: 24px;
-
         max-width: 100%;
+        box-shadow: 0 8px 20px rgba(46, 83, 148, 0.18);
       }
 
       .service-box ul {
@@ -198,24 +266,22 @@
       }
 
       .service-box li {
-        color: #0a3a70;
-
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font);
         font-size: 20px;
-
         font-weight: 400;
-
         line-height: 1.9;
-
         margin-bottom: 4px;
-
         transition: 0.25s;
-
         word-wrap: break-word;
       }
 
-      .service-box li:hover {
-        color: #084c95;
+      .service-box li::marker {
+        color: var(--sx-blue-primary);
+      }
 
+      .service-box li:hover {
+        color: var(--sx-blue-primary);
         padding-left: 6px;
       }
 
@@ -224,67 +290,86 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background-color: #0a3a70;
-        color: #ffffff;
-        font-family: "Nunito Sans", sans-serif;
+        gap: 10px;
+        background: #ffffff;
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font);
         font-weight: 600;
-        font-size: 20px;
-        padding: 14px 32px;
-        border-radius: 10px;
-        border: none;
+        font-size: 1.05rem;
+        padding: 16px 40px;
+        border-radius: 60px;
+        border: 2px solid var(--sx-blue-primary);
         outline: none;
         cursor: pointer;
-        transition:
-        background-color 0.2s ease,
-        transform 0.1s ease;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        box-shadow: var(--sx-shadow-sm);
+        transition: all var(--sx-transition);
+      }
+
+      .button-consult i {
+        transition: transform 0.3s ease;
+      }
+
+      .button-consult:hover {
+        background: linear-gradient(135deg, var(--sx-blue-primary), var(--sx-blue-dark));
+        color: #ffffff;
+        border-color: transparent;
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(46, 83, 148, 0.28);
+      }
+
+      .button-consult:hover i {
+        transform: translateX(4px);
+      }
+
+      .button-consult:active {
+        transform: translateY(-1px) scale(0.98);
       }
 
       .faq-title {
-        color: #0a3a70;
-
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font-serif);
         font-size: 26px;
-
-        font-weight: 600;
-
+        font-weight: 700;
         margin-bottom: 36px;
       }
 
       .right details {
-        border: 1px solid #d9d9d9;
-
-        border-radius: 10px;
-
+        border: 1px solid var(--sx-card-border);
+        border-radius: var(--sx-radius-sm);
         margin-bottom: 12px;
-
         overflow: hidden;
-
         background: #ffffff;
-
-        transition: 0.3s;
+        transition: all var(--sx-transition);
       }
 
       .right details:hover {
         transform: translateY(-2px);
+        box-shadow: var(--sx-shadow-sm);
+        border-color: rgba(51, 119, 170, 0.25);
+      }
 
-        box-shadow: 0 8px 20px rgba(10, 58, 112, 0.08);
+      .right details[open] {
+        border-color: rgba(51, 119, 170, 0.3);
+        box-shadow: var(--sx-shadow-sm);
       }
 
       .right summary {
         cursor: pointer;
-
         padding: 14px 20px;
-
         list-style: none;
-
         position: relative;
-
-        color: #0a3a70;
-
+        font-family: var(--sx-font);
+        color: var(--sx-blue-navy);
         font-size: 15px;
-
         font-weight: 600;
-
         padding-right: 45px;
+        transition: color 0.25s ease;
+      }
+
+      .right summary:hover {
+        color: var(--sx-blue-primary);
       }
 
       .right summary::-webkit-details-marker {
@@ -293,35 +378,28 @@
 
       .right summary::after {
         content: "+";
-
         position: absolute;
-
         right: 18px;
-
         top: 50%;
-
         transform: translateY(-50%);
-
         font-size: 20px;
-
         font-weight: 700;
+        color: var(--sx-blue-primary);
       }
 
       .right details[open] summary::after {
-        content: "−";
+        content: "\2212";
       }
 
       .right details p {
         padding: 0 20px 16px;
-
         font-size: 15px;
-
-        color: #555;
-
+        color: #5a6a7a;
         line-height: 1.7;
       }
 
-      @media (max-width: 900px) {
+      /* Mobile layout aligns with the site's collapsed-navbar breakpoint. */
+      @media (max-width: 991px) {
         .layout {
           flex-direction: column;
         }
@@ -363,64 +441,130 @@
       }
     </style>
 
+
     <style>
-      /* Make the "Our Services" dropdown expand inline within the mobile menu
-         instead of floating as an absolutely-positioned box that overflows
-         off the right edge of the screen. */
-      @media (max-width: 767px) {
-        /* .navbar-nav is capped at max-width:200px in tooplate-infinite-loop.css,
-           which is fine for the plain links but too narrow for the "Our Services"
-           submenu items. Relax it only while that dropdown is open. */
-        #tmNav .navbar-nav:has(.dropdown-menu.show) {
-          max-width: 295px;
-        }
+  /* Make the "Our Services" dropdown expand inline within the mobile menu
+     instead of floating as an absolutely-positioned box that overflows
+     off the right edge of the screen. */
+  @media (max-width: 991px) {
 
-        #tmNav .dropdown-menu {
-          position: static;
-          float: none;
-          width: max-content;
-          max-width: 295px;
-          margin: 0 -10px !important;
-          /* reclaims the mobile menu card's own 10px side padding, since the
-             longest item ("Accounts, Corporation Tax & Payroll") needs every
-             available pixel to fit on one line */
-          border: none;
-          box-shadow: none;
-          background-color: transparent;
-        }
+    /* .navbar-nav is capped at max-width:200px in tooplate-infinite-loop.css,
+       which is fine for the plain links but too narrow for the "Our Services"
+       submenu items. Relax it only while that dropdown is open. */
+    #tmNav .navbar-nav:has(.dropdown-menu.show) {
+      max-width: 295px;
+    }
 
-        /* Keep each item's icon + label on a single line. The longest item
-           genuinely does not fit at the site's default mobile font-size/padding
-           within the available card width, so both are reduced here. */
-        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item {
-          white-space: nowrap;
-          font-size: 0.72rem !important;
-          padding: 6px 8px 6px 10px !important;
-        }
+    #tmNav .dropdown-menu {
+      position: static;
+      float: none;
+      width: max-content;
+      max-width: 295px;
+      margin: 0 -10px !important;
+      border: none;
+      box-shadow: none;
+      background-color: transparent;
+    }
 
-        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item i {
-          width: 12px !important;
-          margin-right: 4px !important;
-        }
+    /* Keep each item's icon + label on a single line. */
+    #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item {
+      white-space: nowrap;
+      font-size: 0.72rem !important;
+      padding: 6px 8px 6px 10px !important;
 
-        /* Bootstrap turns the toggle white when the dropdown is open/focused,
-   which is invisible against the white mobile menu background.
-   Force it to match the other nav links instead. Only override the
-   focus/active/show states -- leave the resting state alone so
-   "Our Services" matches the other links' color when closed. */
-#tmNav .dropdown-toggle.show,
-#tmNav .dropdown-toggle:focus,
-#tmNav .dropdown-toggle:active {
-  color: #707070 !important;
-}
+      /* Dark text so it's visible on this page's light dropdown background */
+      color: var(--sx-blue-navy) !important;
+    }
+
+    #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item i {
+      width: 12px !important;
+      margin-right: 4px !important;
+      color: var(--sx-blue-navy) !important;
+    }
+
+    /* Hover colour (blue like your screenshot) */
+    #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+      background: #2e7ab8 !important;
+      color: #ffffff !important;
+    }
+
+    #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:hover i {
+      color: #ffffff !important;
+    }
+  }
+
+  /* Belt-and-braces fix, applied at every screen width: force the
+     "Our Services" toggle to stay dark-on-light in its resting, focus,
+     active and open states, so it can never blend into the bar's own
+     background. Hover is deliberately left alone so it keeps the same
+     blue-pill highlight as the other nav links (Home, About Us, etc.). */
+  #tmNav .nav-item.dropdown > .dropdown-toggle,
+  #tmNav .nav-item.dropdown > .dropdown-toggle:link,
+  #tmNav .nav-item.dropdown > .dropdown-toggle:visited,
+  #tmNav .nav-item.dropdown > .dropdown-toggle:focus,
+  #tmNav .nav-item.dropdown > .dropdown-toggle:active,
+  #tmNav .nav-item.dropdown > .dropdown-toggle.show {
+    color: var(--sx-blue-primary) !important;
+    background-color: transparent !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--sx-blue-primary) !important;
+  }
+
+  /* Match the same blue-pill hover treatment the other nav links get. */
+  #tmNav .nav-item.dropdown > .dropdown-toggle:hover {
+    color: #ffffff !important;
+    background-color: var(--sx-blue-primary) !important;
+    background: var(--sx-blue-primary) !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+</style>
+    <style>
+      /* Shared navbar palette: primary blue on desktop, white on the mobile menu. */
+      .tm-navbar.scroll .tm-nav-link,
+      .tm-navbar.scroll .navbar-toggler i { color: var(--sx-blue-primary) !important; }
+      .tm-navbar.scroll .dropdown-toggle::after { border-top-color: var(--sx-blue-primary); }
+      @media (min-width: 992px) {
+        #tmNav .nav-item.dropdown > .dropdown-toggle, #tmNav .nav-item.dropdown > .dropdown-toggle:focus, #tmNav .nav-item.dropdown > .dropdown-toggle:active, #tmNav .nav-item.dropdown > .dropdown-toggle.show { color: var(--sx-blue-primary) !important; -webkit-text-fill-color: var(--sx-blue-primary) !important; }
+      }
+      #tmNav .nav-item.dropdown > .dropdown-toggle:hover { color: #ffffff !important; background-color: var(--sx-blue-primary) !important; }
+
+      /* Mark "Our Services" as the current/active page, same solid pill
+         treatment used for "Contact" on the Contact page. */
+      #tmNav .nav-item.dropdown > .dropdown-toggle.active,
+      #tmNav .nav-item.dropdown > .dropdown-toggle.active:link,
+      #tmNav .nav-item.dropdown > .dropdown-toggle.active:visited,
+      #tmNav .nav-item.dropdown > .dropdown-toggle.active:focus {
+        color: #ffffff !important;
+        background-color: var(--sx-blue-primary) !important;
+        background: var(--sx-blue-primary) !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+
+      /* Keep the dropdown arrow visible on the solid blue pill (it would
+         otherwise render blue-on-blue and disappear) whenever the toggle
+         is active, open, or hovered. */
+      #tmNav .dropdown-toggle.active::after,
+      #tmNav .dropdown-toggle.show::after,
+      #tmNav .nav-item.dropdown > .dropdown-toggle:hover::after {
+        border-top-color: #ffffff !important;
+      }
+
+      @media (max-width: 991px) {
+        .navbar-collapse.show { background: var(--sx-blue-navy); border-radius: 0 0 12px 12px; }
+        .navbar-collapse.show .tm-nav-link { color: #ffffff !important; }
+        .navbar-collapse.show .dropdown-toggle::after { border-top-color: #ffffff; }
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item { color: rgba(255, 255, 255, 0.75) !important; }
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item i { color: rgba(255, 255, 255, 0.55) !important; }
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:hover { background-color: transparent !important; color: #ffffff !important; }
+        #tmNav .dropdown-toggle, #tmNav .dropdown-toggle.show, #tmNav .dropdown-toggle:focus, #tmNav .dropdown-toggle:active { color: #ffffff !important; }
+        #tmNav .dropdown-toggle.show { background-color: var(--sx-blue-primary) !important; }
       }
     </style>
-
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-md tm-navbar scroll" id="tmNav">
+    <nav class="navbar navbar-expand-lg tm-navbar scroll" id="tmNav">
       <div class="container px-4 px-md-3">
         <a href="../index.html" class="navbar-brand">
           <img src="../img/Logo_NoBackground.png" alt="SharpX Accountancy logo">
@@ -436,7 +580,7 @@
             <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#AboutUs">About Us</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link tm-nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+              <a class="nav-link tm-nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Services</a>
               <div class="dropdown-menu" aria-labelledby="servicesDropdown">
                 <a class="dropdown-item" href="bookkeeping.html"><i class="fas fa-file-invoice"></i> Bookkeeping, VAT &amp; CIS Returns</a>
@@ -447,61 +591,62 @@
             </li>
             <li class="nav-item"><a class="nav-link tm-nav-link" href="../index.html#gallery">Experience</a></li>
             <li class="nav-item"><a class="nav-link tm-nav-link" href="../contactForm.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="../Forms.html">Quote</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
     <div class="page-container">
-      <h1 class="main-title">Bookkeeping, VAT &amp; CIS Returns</h1>
+      <h1 class="main-title reveal">Bookkeeping, VAT &amp; CIS Returns</h1>
 
       <div class="layout">
-        <div class="left">
+        <div class="left reveal">
           <h2 class="service-title">Bookkeeping, VAT &amp; CIS Returns</h2>
 
           <div class="service-box">
             <ul>
-              <li>Day-to-day, monthly, and quarterly bookkeeping.</li>
+              <li class="reveal-item">Day-to-day, monthly, and quarterly bookkeeping.</li>
 
-              <li>Recording and maintaining financial transactions.</li>
+              <li class="reveal-item">Recording and maintaining financial transactions.</li>
 
-              <li>Bank and credit card reconciliations.</li>
+              <li class="reveal-item">Bank and credit card reconciliations.</li>
 
-              <li>Sales and purchase ledger management.</li>
+              <li class="reveal-item">Sales and purchase ledger management.</li>
 
-              <li>Expense recording and categorization.</li>
+              <li class="reveal-item">Expense recording and categorization.</li>
 
-              <li>Accounts payable and accounts receivable management.</li>
+              <li class="reveal-item">Accounts payable and accounts receivable management.</li>
 
-              <li>VAT registration and deregistration support.</li>
+              <li class="reveal-item">VAT registration and deregistration support.</li>
 
-              <li>Preparation and submission of VAT Returns.</li>
+              <li class="reveal-item">Preparation and submission of VAT Returns.</li>
 
-              <li>Making Tax Digital (MTD) compliant record keeping.</li>
+              <li class="reveal-item">Making Tax Digital (MTD) compliant record keeping.</li>
 
-              <li>CIS contractor and subcontractor registration.</li>
+              <li class="reveal-item">CIS contractor and subcontractor registration.</li>
 
-              <li>Subcontractor verification with HMRC.</li>
+              <li class="reveal-item">Subcontractor verification with HMRC.</li>
 
-              <li>Preparation and submission of monthly CIS Returns.</li>
+              <li class="reveal-item">Preparation and submission of monthly CIS Returns.</li>
 
-              <li>CIS deduction calculations and payment statements.</li>
+              <li class="reveal-item">CIS deduction calculations and payment statements.</li>
 
-              <li>Maintenance of digital accounting records.</li>
+              <li class="reveal-item">Maintenance of digital accounting records.</li>
 
-              <li>Year-end bookkeeping adjustments.</li>
+              <li class="reveal-item">Year-end bookkeeping adjustments.</li>
 
-              <li>Compliance with statutory filing deadlines.</li>
+              <li class="reveal-item">Compliance with statutory filing deadlines.</li>
 
-              <li>Ongoing support for bookkeeping, VAT, and CIS queries.</li>
+              <li class="reveal-item">Ongoing support for bookkeeping, VAT, and CIS queries.</li>
             </ul>
           </div>
 
         </div>
 
-        <div class="right">
+        <div class="right reveal">
           <h2 class="faq-title">FAQs</h2>
-          <details>
+          <details class="reveal-item">
             <summary>Why is bookkeeping important for my business?</summary>
             <p>
               Accurate bookkeeping helps you understand your cash flow, monitor
@@ -510,7 +655,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>How often should my bookkeeping be updated?</summary>
             <p>
               Ideally, your records should be updated weekly or monthly. Leaving
@@ -519,7 +664,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>Do I need to register for VAT?</summary>
             <p>
               If your taxable turnover exceeds the current HMRC threshold,
@@ -528,7 +673,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>Which VAT scheme is best for my business?</summary>
             <p>
               The best scheme depends on your turnover, industry, and expenses.
@@ -537,7 +682,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>What are the benefits of claiming VAT?</summary>
             <p>
               Claiming VAT reduces your business costs, improves cash flow, and
@@ -545,7 +690,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>What happens if I submit my VAT return late?</summary>
             <p>
               Late submissions or payments may result in HMRC penalties,
@@ -553,7 +698,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>What is CIS?</summary>
             <p>
               The Construction Industry Scheme is an HMRC scheme that governs
@@ -562,7 +707,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>Do I need to register for CIS?</summary>
             <p>
               If you're a contractor or subcontractor carrying out qualifying
@@ -570,7 +715,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>Can I reclaim CIS deductions?</summary>
             <p>
               Yes. If you've had more tax deducted than you owe, you may be able
@@ -578,7 +723,7 @@
             </p>
           </details>
 
-          <details>
+          <details class="reveal-item">
             <summary>What happens if I don't register for CIS?</summary>
             <p>
               Contractors may deduct 30% from your payments instead of 20%.
@@ -588,32 +733,70 @@
           </details>
         </div>
       </div>
-      <div style="text-align: center; margin-top: 30px;">
-        <button
-            class="button-consult"
-            type="button"
-            onclick="window.location.href = '../contactForm.html'"
-            onmouseenter="this.style.backgroundColor = '#084c95'"
-            onmouseleave="
-              this.style.backgroundColor = '#0a3a70';
-              this.style.transform = 'scale(1)';
-            "
-            onmousedown="
-              this.style.backgroundColor = '#084c95';
-              this.style.transform = 'scale(0.96)';
-            "
-            onmouseup="
-              this.style.backgroundColor = '#084c95';
-              this.style.transform = 'scale(1)';
-            "
-          >
-            Book A Free Consultation
-          </button>
+      <div class="reveal" style="text-align: center; margin-top: 30px;">
+        <a href="../contactForm.html" class="button-consult">
+          Book A Free Consultation <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
-      
+
     </div>
 
     <script src="../js/jquery-1.9.1.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script>
+  $(function () {
+
+    /* Keep navbar in the scrolled style permanently */
+    $('.tm-navbar').addClass("scroll");
+
+    // Close mobile menu after click (but not when opening the Our Services dropdown)
+    $('#tmNav a:not(.dropdown-toggle)').on('click', function () {
+      $('.navbar-collapse').removeClass('show');
+    });
+
+    // Scroll reveal animation, matches index.html
+    var revealElements = document.querySelectorAll('.reveal');
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+
+    // Staggered text fade-in for list items & FAQs
+    document.querySelectorAll('.service-box ul, .right').forEach(function (group) {
+      var items = group.querySelectorAll(':scope > li.reveal-item, :scope > details.reveal-item');
+      items.forEach(function (el, i) {
+        el.style.transitionDelay = (i * 70) + 'ms';
+      });
+    });
+
+    var itemElements = document.querySelectorAll('.reveal-item');
+    var itemObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          itemObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -30px 0px'
+    });
+
+    itemElements.forEach(function (el) {
+      itemObserver.observe(el);
+    });
+
+  });
+</script>
   </body>
 </html>

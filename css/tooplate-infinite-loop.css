@@ -109,7 +109,29 @@ blockquote {
 }
 
 .tm-navbar.scroll .navbar-brand {
-  color: #369;
+  color: var(--sx-blue-primary, #2e7ab8);
+}
+
+/* Compact phones (including 320px-wide viewports): keep the Services submenu
+   inside the screen and wrap its longest label instead of overflowing. */
+@media (max-width: 360px) {
+  #tmNav .navbar-nav:has(.dropdown-menu.show) {
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  #tmNav .dropdown-menu {
+    width: 100% !important;
+    /* Page-specific menus use a 10px negative side margin; reserve that
+       space here so the resulting box still stays inside the viewport. */
+    max-width: calc(100vw - 52px) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item {
+    white-space: normal !important;
+    line-height: 1.35;
+  }
 }
 
 .nav-item {
@@ -123,14 +145,17 @@ blockquote {
 }
 
 .tm-navbar.scroll .tm-nav-link {
-  color: #369;
+  color: var(--sx-blue-primary, #2e7ab8);
 }
 
 .tm-navbar.scroll .tm-nav-link:hover,
 .tm-navbar.scroll .tm-nav-link.current,
-.tm-nav-link:hover {
-  color: #FFF;
-  background-color: #369;
+.tm-navbar.scroll .tm-nav-link.active,
+.tm-nav-link:hover,
+.tm-nav-link.active,
+.tm-nav-link.current {
+  color: #FFF !important;
+  background-color: var(--sx-blue-primary, #2e7ab8) !important;
   border-radius: 0.4rem;
 }
 
@@ -499,7 +524,7 @@ figure.effect-honey h2 {
 .tm-btn-submit {
 	font-size: 0.9em;
 	color: #fff;
-	background-color: #369;
+        background-color: var(--sx-blue-primary, #2e7ab8);
 	width: 50%;
 	margin-bottom: 60px;
 	box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.3);
@@ -558,12 +583,12 @@ p {
   line-height: 1.9;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .tm-intro-text-container {
     padding-left: 0px;
   }
 
-  .navbar-expand-md .navbar-nav .nav-link {
+  .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 30px;
     padding-left: 30px;
   }
@@ -598,7 +623,7 @@ p {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .navbar-nav {
     max-width: 200px;
     text-align: right;
@@ -737,7 +762,7 @@ p {
 
       .services {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 45px;
         margin-top: 20px;
       }
@@ -816,7 +841,7 @@ p {
         color: #fff;
       }
 
-      @media (max-width: 992px) {
+      @media (max-width: 991px) {
         .services {
           grid-template-columns: 1fr;
         }
@@ -834,7 +859,7 @@ p {
     }
 
     /* Show dropdown on hover (desktop only) */
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       .nav-item.dropdown:hover>.dropdown-menu {
         display: block;
         margin-top: 0;
@@ -859,7 +884,7 @@ p {
     .tm-navbar.scroll .nav-item.dropdown .dropdown-toggle:focus,
     .tm-navbar.scroll .nav-item.dropdown .dropdown-toggle:active,
     .tm-navbar.scroll .nav-item.dropdown.show .dropdown-toggle {
-      color: #369 !important;
+      color: var(--sx-blue-primary, #2e7ab8) !important;
       background-color: transparent;
     }
 
@@ -908,12 +933,12 @@ p {
     }
 
     .tm-navbar.scroll .dropdown-menu .dropdown-item {
-      color: #369;
+      color: var(--sx-blue-primary, #2e7ab8);
     }
 
     .tm-navbar.scroll .dropdown-menu .dropdown-item:hover,
     .tm-navbar.scroll .dropdown-menu .dropdown-item:focus {
-      background-color: #369;
+      background-color: var(--sx-blue-primary, #2e7ab8);
       color: #ffffff;
     }
 
@@ -926,7 +951,7 @@ p {
     }
 
     /* Mobile dropdown adjustments */
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
       .nav-item.dropdown .dropdown-menu {
         background-color: #f8f9fa;
         border: none;
@@ -943,7 +968,7 @@ p {
       }
 
       .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
-        background-color: #369;
+        background-color: var(--sx-blue-primary, #2e7ab8);
         color: #ffffff;
         padding-left: 34px;
       }

@@ -22,41 +22,72 @@
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
     <link rel="icon" type="image/png" href="img/Logo_NoBackground_Blue.png" />
     <style>
+      /* ============================================================
+       Design tokens — matched to index.html's SharpX theme
+       ============================================================ */
       :root {
-        --ink: #0a3a70;
-        --ink-hover: #084c95;
-        --muted: #6d7a89;
-        --line: gray;
-        --page: #f8fbff;
+        --sx-blue-primary: #2e7ab8;
+        --sx-blue-dark: #1f4f7a;
+        --sx-blue-navy: #163a63;
+        --sx-blue-deep: #0f2a4a;
+        --sx-blue-light: #4a9fd8;
+        --sx-gold: #2e86c1;
+        --sx-gray: #5c6b7a;
+        --sx-bg-light: #eef3f9;
+        --sx-card-border: #dde6f0;
+        --sx-shadow-sm: 0 3px 14px rgba(14, 44, 80, 0.12);
+        --sx-shadow-md: 0 10px 30px rgba(14, 44, 80, 0.18);
+        --sx-shadow-lg: 0 20px 54px rgba(14, 44, 80, 0.24);
+        --sx-radius: 20px;
+        --sx-radius-sm: 12px;
+        --sx-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        --sx-font: "Inter", "Nunito Sans", "Raleway", sans-serif;
+        --sx-font-serif: "Playfair Display", "Georgia", serif;
+        /* kept for any legacy references */
+        --ink: var(--sx-blue-navy);
+        --ink-hover: var(--sx-blue-primary);
+        --muted: var(--sx-gray);
+        --line: var(--sx-card-border);
+        --page: var(--sx-bg-light);
       }
       * {
         box-sizing: border-box;
       }
       html,
       body {
-        background-color: #ffffff !important;
+        background-color: var(--sx-bg-light) !important;
       }
       .tm-navbar {
         background-color: #ffffff !important;
-        box-shadow: none !important;
+        box-shadow: 0 4px 20px rgba(14, 44, 80, 0.08) !important;
       }
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: "Nunito Sans", sans-serif;
+        font-family: var(--sx-font);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
       .page {
         min-height: calc(100vh - 170px);
-        padding: 64px 20px 8px;
+        padding: 96px 20px 60px;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        background-color: #ffffff;
+        background-color: var(--sx-bg-light);
       }
       .contact-card {
         width: min(1320px, 100%);
@@ -76,32 +107,69 @@
         transform: translateX(-50%);
         background: linear-gradient(
           to bottom,
-          rgba(10, 58, 112, 0) 0%,
-          rgba(10, 58, 112, 0.18) 20%,
-          rgba(10, 58, 112, 0.18) 80%,
-          rgba(10, 58, 112, 0) 100%
+          rgba(22, 58, 99, 0) 0%,
+          rgba(22, 58, 99, 0.18) 15%,
+          rgba(22, 58, 99, 0.18) 85%,
+          rgba(22, 58, 99, 0) 100%
         );
         pointer-events: none;
       }
       .form-panel,
       .lead-form-panel {
-        background: #fff;
+        background: transparent;
         border: none;
-        border-radius: 22px;
+        border-radius: 0;
         box-shadow: none;
+        opacity: 0;
+        transform: translateY(24px);
+        animation: fadeSlideUp 0.6s ease forwards;
       }
       .form-panel {
-        padding: 44px 36px 30px;
+        animation-delay: 0.1s;
+      }
+      .lead-form-panel {
+        animation-delay: 0.3s;
+      }
+      @keyframes fadeSlideUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .form-panel,
+        .lead-form-panel {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .form-panel {
+        padding: 48px 40px 34px;
       }
       h1,
       h2 {
         margin: 0;
-        color: var(--ink);
-        font-size: 25px;
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font-serif);
+        font-size: 1.9rem;
         font-weight: 600;
+        letter-spacing: -0.01em;
+        position: relative;
+        display: inline-block;
+      }
+      h1::after,
+      h2::after {
+        content: "";
+        display: block;
+        width: 46px;
+        height: 3px;
+        margin-top: 14px;
+        border-radius: 3px;
+        background: var(--sx-gold);
       }
       form {
-        margin-top: 20px;
+        margin-top: 28px;
       }
       .field-grid {
         display: grid;
@@ -114,73 +182,144 @@
       label {
         display: block;
         margin-bottom: 6px;
-        color: var(--ink);
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font);
         font-size: 14px;
         font-weight: 600;
       }
       input,
       textarea {
         width: 100%;
-        border: 1px solid var(--line);
-        border-radius: 9px;
+        border: 1px solid #c3d1e0;
+        border-radius: var(--sx-radius-sm);
         outline: 0;
-        color: #555;
-        font:
-          15px "Nunito Sans",
-          sans-serif;
-        background: #fff;
+        color: #47525d;
+        font: 15px var(--sx-font);
+        background: #eef2f7;
         transition:
-          border-color 0.2s ease,
-          box-shadow 0.2s ease;
+          border-color 0.25s ease,
+          box-shadow 0.25s ease,
+          background-color 0.25s ease;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #8b95a3;
+        opacity: 1;
+      }
+      input::-webkit-input-placeholder,
+      textarea::-webkit-input-placeholder {
+        color: #8b95a3;
+        opacity: 1;
+      }
+      input:-ms-input-placeholder,
+      textarea:-ms-input-placeholder {
+        color: #8b95a3;
+        opacity: 1;
+      }
+      input:focus,
+      textarea:focus {
+        background: #ffffff;
       }
       input {
-        height: 42px;
-        padding: 0 13px;
+        height: 44px;
+        padding: 0 14px;
       }
       textarea {
-        height: 70px;
+        height: 76px;
         resize: vertical;
-        padding: 11px 13px;
+        padding: 12px 14px;
         line-height: 1.5;
       }
       input:focus,
       textarea:focus {
-        border-color: #0a3a70;
-        box-shadow: 0 0 0 3px rgba(10, 58, 112, 0.1);
+        border-color: var(--sx-blue-primary);
+        box-shadow: 0 0 0 3px rgba(46, 122, 184, 0.15);
       }
       .message {
         margin-top: 20px;
       }
       button {
         margin-top: 20px;
-        padding: 11px 22px;
-        border: 0;
-        border-radius: 9px;
-        background: var(--ink);
-        color: #fff;
-        font:
-          600 15px "Nunito Sans",
-          sans-serif;
-        letter-spacing: 0.3px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 34px;
+        border: 2px solid var(--sx-blue-navy);
+        border-radius: 60px;
+        background: var(--sx-blue-navy);
+        color: #ffffff;
+        font: 600 15px var(--sx-font);
+        letter-spacing: 0.04em;
         cursor: pointer;
-        transition:
-          background 0.2s ease,
-          transform 0.1s ease;
+        transition: all var(--sx-transition);
+        box-shadow: 0 8px 24px rgba(22, 58, 99, 0.25);
       }
       button:hover {
-        background: var(--ink-hover);
-        transform: translateY(-1px);
+        background: var(--sx-blue-primary);
+        border-color: var(--sx-blue-primary);
+        transform: translateY(-3px);
+        box-shadow: 0 14px 32px rgba(46, 122, 184, 0.35);
+      }
+      button:active {
+        transform: translateY(-1px) scale(0.98);
       }
       .lead-form-panel {
-        min-height: 500px;
-        overflow: hidden;
+        padding: 48px 40px 34px;
+        display: flex;
+        flex-direction: column;
       }
-      .lead-form-panel iframe {
-        display: block;
-        width: 100%;
-        height: 500px;
-        min-height: 100%;
-        border: 0;
+      .lead-form-panel p.intro {
+        color: var(--sx-gray);
+        font-family: var(--sx-font);
+        font-size: 14.5px;
+        line-height: 1.7;
+        margin-top: 14px;
+        margin-bottom: 28px;
+      }
+      .quote-links-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin-top: auto;
+      }
+      .quote-link-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 14px;
+        text-align: left;
+        padding: 18px 20px;
+        border: 1px solid var(--sx-card-border);
+        border-radius: var(--sx-radius-sm);
+        background: #ffffff;
+        color: var(--sx-blue-navy);
+        font-family: var(--sx-font);
+        font-weight: 600;
+        font-size: 14.5px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--sx-shadow-sm);
+        transition: all var(--sx-transition);
+      }
+      .quote-link-btn i {
+        font-size: 18px;
+        width: 20px;
+        text-align: center;
+        color: var(--sx-blue-primary);
+        transition: color 0.3s ease;
+      }
+      .quote-link-btn:hover {
+        background: var(--sx-blue-navy);
+        border-color: var(--sx-blue-navy);
+        color: #ffffff;
+        transform: translateX(4px);
+        box-shadow: var(--sx-shadow-sm);
+      }
+      .quote-link-btn:hover i {
+        color: #ffffff;
       }
       .form-panel form > button {
         margin-top: 70px;
@@ -191,6 +330,23 @@
       footer.tm-footer {
         padding: 6px 0 0 !important;
         box-shadow: none !important;
+        border-top: 3px solid var(--sx-gold);
+      }
+      .tm-footer .item-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        transition: all var(--sx-transition);
+      }
+      .tm-footer .item-link:hover {
+        background: var(--sx-gold);
+        border-color: var(--sx-gold);
+        color: var(--sx-blue-deep) !important;
+        transform: translateY(-3px);
       }
       .tm-footer h5 {
         font-size: 15px !important;
@@ -214,10 +370,58 @@
       .tm-footer [style*="gap: 20px"] {
         gap: 12px !important;
       }
-      @media (max-width: 640px) {
+      /* Nav link styling — matched to index.html's scrolled navbar state */
+      .tm-navbar .tm-nav-link,
+      .tm-navbar .navbar-toggler i {
+        color: var(--sx-blue-primary) !important;
+      }
+      .tm-navbar .dropdown-toggle::after {
+        border-top-color: var(--sx-blue-primary);
+      }
+      .tm-navbar .tm-nav-link:hover,
+      .tm-navbar .tm-nav-link.active,
+      .tm-navbar .tm-nav-link.current {
+        color: #ffffff !important;
+        background-color: var(--sx-blue-primary) !important;
+      }
+      .tm-nav-link {
+        position: relative;
+        transition: letter-spacing 0.3s ease;
+      }
+      .tm-nav-link:hover {
+        letter-spacing: 0.03em;
+      }
+      .tm-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 2px;
+        width: 0;
+        height: 2px;
+        background: var(--sx-gold);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .tm-nav-link:hover::after,
+      .tm-nav-link.active::after,
+      .tm-nav-link.current::after {
+        width: 60%;
+      }
+      @media (max-width: 991px) {
+        .navbar-collapse.show {
+          background: var(--sx-blue-navy);
+          border-radius: 0 0 12px 12px;
+        }
+        .navbar-collapse.show .tm-nav-link {
+          color: #ffffff !important;
+        }
+      }
+
+      /* Mobile layout aligns with the site's collapsed-navbar breakpoint. */
+      @media (max-width: 991px) {
         .page {
           min-height: auto;
-          padding: 72px 16px 28px;
+          padding: 88px 16px 28px;
           align-items: center;
         }
         .contact-card {
@@ -239,10 +443,22 @@
         .form-panel form > button {
           margin-top: 20px;
         }
-        .lead-form-panel,
-        .lead-form-panel iframe {
-          min-height: 600px;
-          height: 600px;
+        .lead-form-panel {
+          padding: 32px 24px;
+        }
+        input,
+        textarea {
+          border: 1px solid #c3d1e0 !important;
+          background: #eef2f7 !important;
+        }
+        input:focus,
+        textarea:focus {
+          background: #ffffff !important;
+        }
+        input::placeholder,
+        textarea::placeholder {
+          color: #8b95a3 !important;
+          opacity: 1 !important;
         }
       }
     </style>
@@ -251,7 +467,7 @@
       /* Make the "Our Services" dropdown expand inline within the mobile menu
          instead of floating as an absolutely-positioned box that overflows
          off the right edge of the screen. */
-      @media (max-width: 767px) {
+      @media (max-width: 991px) {
         /* .navbar-nav is capped at max-width:200px in tooplate-infinite-loop.css,
            which is fine for the plain links but too narrow for the "Our Services"
            submenu items. Relax it only while that dropdown is open. */
@@ -280,11 +496,20 @@
           white-space: nowrap;
           font-size: 0.72rem !important;
           padding: 6px 8px 6px 10px !important;
+          color: rgba(255, 255, 255, 0.75) !important;
+        }
+
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:hover,
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:focus,
+        #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item:active {
+          color: #ffffff !important;
+          background-color: transparent !important;
         }
 
         #tmNav .nav-item.dropdown .dropdown-menu .dropdown-item i {
           width: 12px !important;
           margin-right: 4px !important;
+          color: rgba(255, 255, 255, 0.55) !important;
         }
 
         /* Bootstrap turns the toggle white when the dropdown is open/focused,
@@ -293,15 +518,224 @@
         #tmNav .dropdown-toggle,
         #tmNav .dropdown-toggle.show,
         #tmNav .dropdown-toggle:focus,
-        #tmNav .dropdown-toggle:active,
-        #tmNav .dropdown-toggle:hover {
-          color: #707070 !important;
+        #tmNav .dropdown-toggle:active {
+          color: #ffffff !important;
         }
+        #tmNav .dropdown-toggle.show {
+          background-color: var(--sx-blue-primary) !important;
+        }
+      }
+
+      /* Belt-and-braces fix, applied on desktop (white bar) only: force the
+         "Our Services" toggle to stay dark-on-light in its resting, focus,
+         active and open states, so it can never blend into the bar's own
+         background. Hover is deliberately left alone so it keeps the same
+         blue-pill highlight as the other nav links (Home, About Us, etc.).
+         On mobile the dropdown menu sits inside the dark navy panel instead,
+         so this is scoped out there and handled by the white override above. */
+      @media (min-width: 992px) {
+        #tmNav .nav-item.dropdown > .dropdown-toggle,
+        #tmNav .nav-item.dropdown > .dropdown-toggle:link,
+        #tmNav .nav-item.dropdown > .dropdown-toggle:visited,
+        #tmNav .nav-item.dropdown > .dropdown-toggle:focus,
+        #tmNav .nav-item.dropdown > .dropdown-toggle:active,
+        #tmNav .nav-item.dropdown > .dropdown-toggle.show {
+          color: var(--sx-blue-primary) !important;
+          background-color: transparent !important;
+          background: none !important;
+          -webkit-text-fill-color: var(--sx-blue-primary) !important;
+        }
+      }
+
+      /* Match the same blue-pill hover treatment the other nav links get. */
+      #tmNav .nav-item.dropdown > .dropdown-toggle:hover {
+        color: #ffffff !important;
+        background-color: var(--sx-blue-primary) !important;
+        background: var(--sx-blue-primary) !important;
+        -webkit-text-fill-color: #ffffff !important;
+      }
+
+      /* ============================================================
+         FOOTER — matches index.html site-footer styles
+         ============================================================ */
+      .site-footer {
+        background: var(--sx-blue-deep);
+        border-top: 3px solid var(--sx-gold);
+        color: #ffffff;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+      }
+      .footer-main {
+        padding: 56px 0 28px;
+      }
+      .footer-brand h5 {
+        font-family: var(--sx-font);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #ffffff;
+      }
+      .footer-brand .tagline {
+        font-size: 0.92rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 16px;
+        line-height: 1.5;
+      }
+      .footer-brand .desc {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.65;
+      }
+      .footer-badge {
+        display: inline-flex;
+        align-items: center;
+      }
+      .footer-badge img {
+        height: 52px;
+        width: auto;
+        display: block;
+      }
+      .footer-badge img:first-child {
+        margin-right: 6px;
+      }
+      .footer-badge img:last-child {
+        height: 44px;
+      }
+      .footer-contact h5 {
+        font-family: var(--sx-font);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 18px;
+        color: #ffffff;
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 14px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.3s ease;
+      }
+      .footer-contact-item:hover {
+        color: #ffffff;
+      }
+      .footer-contact-item i {
+        width: 18px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 3px;
+        flex-shrink: 0;
+        transition: color 0.3s ease;
+      }
+      .footer-contact-item:hover i {
+        color: var(--sx-gold);
+      }
+      .footer-contact-item a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .footer-contact-item a:hover {
+        color: #ffffff;
+      }
+      .footer-social {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        margin-top: 28px;
+        padding-top: 24px;
+        text-align: center;
+      }
+      .footer-social-row {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+      }
+      .footer-badge {
+        grid-column: 1;
+        justify-self: start;
+        margin-left: 75px;
+      }
+      .footer-follow {
+        grid-column: 2;
+      }
+      @media (max-width: 991px) {
+        .footer-main {
+          padding: 44px 0 20px;
+          text-align: center;
+        }
+        .footer-brand,
+        .footer-contact {
+          text-align: center !important;
+        }
+        .footer-contact-item {
+          justify-content: center;
+        }
+        .footer-social-row {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+        .footer-badge {
+          grid-column: unset;
+          justify-self: unset;
+          margin-left: 0;
+        }
+        .footer-follow {
+          grid-column: unset;
+        }
+      }
+      .footer-social h6 {
+        font-family: var(--sx-font);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+      .social-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .social-icon:hover {
+        background: var(--sx-gold);
+        border-color: var(--sx-gold);
+        transform: translateY(-3px);
+        color: var(--sx-blue-deep);
+      }
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.15);
+        padding: 14px 0;
+        text-align: center;
+      }
+      .footer-bottom p {
+        margin: 0;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        letter-spacing: 0.02em;
       }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-md tm-navbar scroll" id="tmNav">
+    <nav class="navbar navbar-expand-lg tm-navbar scroll" id="tmNav">
       <div class="container px-4 px-md-3">
         <a href="index.html" class="navbar-brand">
           <img src="img/Logo_NoBackground.png" alt="SharpX Accountancy logo" />
@@ -324,6 +758,7 @@
             </li>
             <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html#gallery">Experience</a></li>
             <li class="nav-item"><a class="nav-link tm-nav-link current" href="contactForm.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link tm-nav-link" href="Forms.html">Quote</a></li>
           </ul>
         </div>
       </div>
@@ -391,91 +826,44 @@
             <button type="submit" style="margin-top: 45px;">SEND MESSAGE</button>
           </form>
         </div>
-        <section class="lead-form-panel" aria-label="Accountancy lead form">
-          <iframe
-            id="leadFormIframe"
-            src="contact.html?v=3"
-            title="SharpX Accountancy lead generation form"
-          ></iframe>
+        <section class="lead-form-panel" aria-label="Get an instant quote">
+          <h2>Get an instant quote</h2>
+          <p class="intro">
+            Prefer a faster route? Pick the service you need and fill out a
+            quick form to get a tailored quotation.
+          </p>
+          <div class="quote-links-grid">
+            <a class="quote-link-btn" href="Forms.html?tab=accounts">
+              <i class="fas fa-calculator"></i>
+              Annual Accounts
+            </a>
+            <a class="quote-link-btn" href="Forms.html?tab=bookkeeping">
+              <i class="fas fa-file-invoice"></i>
+              Bookkeeping
+            </a>
+            <a class="quote-link-btn" href="Forms.html?tab=selfassessment">
+              <i class="fas fa-file-invoice-dollar"></i>
+              Self Assessment
+            </a>
+            <a class="quote-link-btn" href="Forms.html?tab=advisory">
+              <i class="fas fa-users"></i>
+              Advisory
+            </a>
+          </div>
         </section>
       </section>
     </main>
 
-    <script>
-      window.addEventListener("message", function (event) {
-        if (
-          event.data &&
-          event.data.source === "sharpxLeadForm" &&
-          typeof event.data.height === "number"
-        ) {
-          var iframe = document.getElementById("leadFormIframe");
-          if (iframe) {
-            iframe.style.height = event.data.height + "px";
-          }
-        }
-      });
-    </script>
-
-    <footer
-      class="tm-footer"
-      style="
-        background-color: #2e7ab8;
-        color: #fff;
-        padding: 20px 0 0 0;
-        margin: 0;
-        position: relative;
-        z-index: 10;
-        width: 100%;
-        display: block;
-        box-shadow: 0 50vh 0 50vh #1e5a8e;
-      "
-    >
-      <style>
-        html,
-        body {
-          margin: 0 !important;
-          padding: 0 !important;
-          background-color: #ffffff !important;
-          height: 100%;
-        }
-      </style>
-
-      <div class="container" style="padding: 40px 0 20px 0">
+    <footer class="site-footer">
+      <div class="container footer-main reveal">
         <div class="row justify-content-center">
           <div class="col-11 col-md-5 col-lg-5 mb-4 mb-md-0 mx-auto text-left">
-            <div style="margin-bottom: 20px">
-              <h5
-                style="
-                  font-size: 18px;
-                  font-weight: 600;
-                  margin-bottom: 4px;
-                  color: #fff;
-                "
-              >
-                SharpX Accountancy Services
-              </h5>
-
-              <p
-                style="
-                  font-size: 15px;
-                  line-height: 1.4;
-                  color: rgba(255, 255, 255, 0.85);
-                  margin-top: 0;
-                  margin-bottom: 14px;
-                "
-              >
+            <div class="footer-brand">
+              <h5>SharpX Accountancy Services</h5>
+              <p class="tagline">
                 Digitalized Solutions For A Smarter Tomorrow.
               </p>
-
-              <p
-                style="
-                  font-size: 14px;
-                  line-height: 1.6;
-                  color: rgba(255, 255, 255, 0.85);
-                  margin-top: 14px;
-                  margin-bottom: 0;
-                "
-              >
+              <p class="desc">
                 Expert accounting, tax, and advisory services tailored to your
                 business needs.
               </p>
@@ -485,136 +873,71 @@
           <div
             class="col-11 col-md-5 col-lg-4 pl-md-4 pl-lg-5 mx-auto text-left"
           >
-            <h5
-              style="
-                font-size: 18px;
-                font-weight: 600;
-                margin-bottom: 12px;
-                color: #fff;
-              "
-            >
-              Get In Touch
-            </h5>
-            <div style="margin-bottom: 8px">
-              <p
-                style="
-                  margin: 0;
-                  font-size: 14px;
-                  color: rgba(255, 255, 255, 0.85);
-                "
-              >
-                <i
-                  class="far fa-envelope"
-                  style="margin-right: 10px; color: #fff; width: 16px"
-                ></i>
-                <a
-                  href="mailto:info@sharpxaccountancy.co.uk"
-                  style="
-                    color: rgba(255, 255, 255, 0.85);
-                    text-decoration: none;
-                  "
+            <div class="footer-contact">
+              <h5>Get In Touch</h5>
+              <div class="footer-contact-item">
+                <i class="far fa-envelope"></i>
+                <a href="mailto:info@sharpxaccountancy.co.uk"
                   >info@sharpxaccountancy.co.uk</a
                 >
-              </p>
-            </div>
-            <div style="margin-bottom: 8px">
-              <p
-                style="
-                  margin: 0;
-                  font-size: 14px;
-                  color: rgba(255, 255, 255, 0.85);
-                "
-              >
-                <i
-                  class="fas fa-phone"
-                  style="margin-right: 10px; color: #fff; width: 16px"
-                ></i>
+              </div>
+              <div class="footer-contact-item">
+                <i class="fab fa-whatsapp"></i>
                 <a
-                  href="tel:+447873389958"
-                  style="
-                    color: rgba(255, 255, 255, 0.85);
-                    text-decoration: none;
-                  "
+                  href="https://wa.me/447873389958"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >+44 7873 389958</a
                 >
-              </p>
-            </div>
-            <div>
-              <p
-                style="
-                  margin: 0;
-                  font-size: 14px;
-                  color: rgba(255, 255, 255, 0.85);
-                "
-              >
-                <i
-                  class="fas fa-map-marker-alt"
-                  style="margin-right: 10px; color: #fff; width: 16px"
-                ></i>
-                <a
-                  href="#"
-                  style="
-                    color: rgba(255, 255, 255, 0.85);
-                    text-decoration: none;
-                  "
-                  >199 Oldham Road, Failsworth, <br>&nbsp &nbsp &nbsp &nbsp &nbsp; Manchester M35 0BX, GB</a
+              </div>
+              <div class="footer-contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="#"
+                  >199 Oldham Road, Failsworth,<br />Manchester M35 0BX, GB</a
                 >
-              </p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div
-          style="
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin-top: 25px;
-            padding-top: 15px;
-          "
-        >
-          <div style="text-align: center">
-            <h6
-              style="
-                font-size: 14px;
-                font-weight: 600;
-                margin-bottom: 10px;
-                color: #fff;
-              "
-            >
-              Follow Us
-            </h6>
-            <div style="display: flex; justify-content: center; gap: 20px">
-              <a
-                href="https://www.linkedin.com/company/sharpx-accountancy-services-ltd/"
-                class="item-link"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                style="color: #fff; font-size: 20px; transition: color 0.3s"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/sharpxaccountancy?utm_source=qr&igsh=Mm0xczRpaTZvbHU4"
-                class="item-link"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                style="color: #fff; font-size: 20px; transition: color 0.3s"
-                ><i class="fab fa-instagram"></i
-              ></a>
+        <div class="footer-social">
+          <div class="footer-social-row">
+            <div class="footer-badge">
+              <img
+                src="img/ACCA_Logo.png"
+                alt="ACCA - Association of Chartered Certified Accountants"
+              />
+              <img src="img/CPAA.png" alt="CPAA Logo" />
+            </div>
+            <div class="footer-follow">
+              <h6>Follow Us</h6>
+              <div class="social-icons">
+                <a
+                  href="https://www.linkedin.com/company/sharpx-accountancy-services-ltd/"
+                  class="social-icon"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/sharpxaccountancy?utm_source=qr&igsh=Mm0xczRpaTZvbHU4"
+                  class="social-icon"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        style="
-          background-color: #1e5a8e;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          padding: 10px 0;
-          text-align: center;
-          margin-top: 1px;
-        "
-      >
-        <p style="margin: 0; font-size: 13px; color: rgba(255, 255, 255, 0.9)">
-          Copyright © 2035 by SharpX Accountancy Services . All rights reserved.
+      <div class="footer-bottom">
+        <p>
+          Copyright &copy; 2035 by SharpX Accountancy Services. All rights
+          reserved.
         </p>
       </div>
     </footer>

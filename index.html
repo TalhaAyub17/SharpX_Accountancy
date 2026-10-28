@@ -147,13 +147,15 @@
       #infinite {
         position: relative;
         overflow: hidden;
+        height: 100vh;
+        height: 100svh;
+        min-height: 520px;
+        background-size: cover;
+        background-position: center center;
+        background-color: #07346f;
       }
       #infinite::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(14, 34, 60, 0.72);
-        z-index: 1;
+        display: none;
       }
       #infinite > * {
         position: relative;
@@ -171,9 +173,10 @@
         right: 0 !important;
         width: 100%;
         z-index: 1050 !important;
-        background: rgba(15, 42, 74, 0.12);
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
+        min-height: 82px;
+        background: #07346f;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         transition:
           background 0.35s ease,
           box-shadow 0.35s ease,
@@ -318,6 +321,59 @@
 
       /* Hero Text */
       .tm-hero-text-container-inner {
+        display: block;
+        width: min(100% - 32px, 1100px);
+        margin: 0 auto;
+        margin-bottom: 0px;
+        transform: translateY(22px);
+      }
+      .hero-brand-lockup {
+        margin: 0 auto;
+        color: #ffffff;
+        text-align: center;
+        animation: slideDown 0.9s ease both;
+      }
+      .hero-brand-name {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        font-family: var(--sx-font-serif);
+        font-size: clamp(2.5rem, 7vw, 5rem);
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+        color: #ffffff;
+        text-shadow: 0 3px 18px rgba(0, 20, 55, 0.35);
+      }
+      .hero-brand-name::before {
+        position: absolute;
+        top: -0.03em;
+        left: 0;
+        width: 0.48em;
+        height: 4px;
+        background: #ffffff;
+        content: "";
+      }
+      .hero-brand-tagline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin: 12px auto 0;
+        color: rgba(255, 255, 255, 0.94);
+        font-size: clamp(0.65rem, 1.55vw, 1rem);
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        line-height: 1.5;
+        text-transform: uppercase;
+        text-shadow: 0 2px 12px rgba(0, 20, 55, 0.4);
+      }
+      .hero-brand-tagline::after {
+        width: clamp(42px, 9vw, 112px);
+        height: 4px;
+        flex: 0 0 auto;
+        background: #ffffff;
+        content: "";
       }
       .tm-hero-title {
         font-family: var(--sx-font-serif) !important;
@@ -366,6 +422,18 @@
         animation: slideDown 0.9s ease both;
         animation-delay: 0.3s;
       }
+      #infinite .tm-intro-next {
+        bottom: clamp(32px, 8vh, 76px);
+        left: 0;
+        right: 0;
+        margin: 0 !important;
+      }
+      #infinite .hero-particles {
+        display: none;
+      }
+      #infinite .scroll-indicator {
+        display: none;
+      }
       .hero-cta:hover {
         background: var(--sx-blue-navy);
         color: #ffffff;
@@ -381,6 +449,207 @@
       }
       .hero-cta:hover i {
         transform: translateX(4px);
+      }
+
+      .hero-deadline-banner {
+        display: flex;
+        align-items: center;
+        width: min(100%, 760px);
+        min-height: 92px;
+        margin: 24px auto 0;
+        padding: 8px;
+        border: 2px solid rgba(178, 224, 255, 0.95);
+        border-radius: 50px;
+        background: linear-gradient(135deg, #f8fcff 0%, #dceeff 100%);
+        box-shadow: 0 0 0 4px rgba(40, 142, 236, 0.62),
+          0 12px 34px rgba(0, 14, 48, 0.4),
+          inset 0 2px 5px rgba(255, 255, 255, 0.95);
+        color: #123e76;
+        text-decoration: none;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .hero-deadline-banner:hover,
+      .hero-deadline-banner:focus-visible {
+        color: #123e76;
+        text-decoration: none;
+        transform: translateY(-3px);
+        box-shadow: 0 0 0 4px rgba(75, 180, 255, 0.82),
+          0 16px 40px rgba(0, 14, 48, 0.5),
+          inset 0 2px 5px rgba(255, 255, 255, 0.95);
+      }
+      .hero-deadline-icon {
+        display: grid;
+        flex: 0 0 76px;
+        width: 76px;
+        height: 76px;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #1d67b9, #063572);
+        color: #ffffff;
+        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.72),
+          0 3px 10px rgba(8, 39, 90, 0.35);
+        font-size: 2rem;
+      }
+      .hero-deadline-copy {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 16px;
+        line-height: 1.08;
+      }
+      .hero-deadline-copy span {
+        font-size: clamp(0.8rem, 2vw, 1.15rem);
+        font-weight: 700;
+      }
+      .hero-deadline-copy strong {
+        margin-top: 3px;
+        font-size: clamp(1.35rem, 3.5vw, 2.15rem);
+        font-weight: 800;
+        letter-spacing: 0.01em;
+      }
+      .hero-contact-link {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        min-height: 68px;
+        padding: 0 22px;
+        border: 2px solid rgba(255, 255, 255, 0.72);
+        border-radius: 40px;
+        background: linear-gradient(145deg, #287bc9, #073a7b);
+        color: #ffffff;
+        font-size: clamp(0.76rem, 1.6vw, 1rem);
+        font-weight: 700;
+        white-space: nowrap;
+        box-shadow: inset 0 0 0 2px rgba(117, 196, 255, 0.72),
+          0 3px 10px rgba(8, 39, 90, 0.3);
+      }
+      .hero-deadline-banner:hover .hero-contact-link,
+      .hero-deadline-banner:focus-visible .hero-contact-link {
+        color: #ffffff;
+      }
+      .hero-contact-link i {
+        font-size: 1.3em;
+      }
+      .hero-consultation-wrap {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 100px;
+        margin-bottom: 0px;
+      }
+      @media (max-width: 560px) {
+        /* Keep the hero artwork centered on phones while fitting the title. */
+        #infinite {
+          height: max(100svh, 620px);
+          min-height: 620px;
+          background-size: cover;
+          background-position: 58% center;
+        }
+        .tm-hero-text-container-inner {
+          width: calc(100% - 28px);
+          transform: translateY(0);
+        }
+        .hero-brand-name {
+          font-size: clamp(2.25rem, 10vw, 3.25rem);
+        }
+        .hero-brand-tagline {
+          gap: 8px;
+          margin-top: 8px;
+          font-size: clamp(0.52rem, 2.45vw, 0.72rem);
+          letter-spacing: 0.12em;
+          line-height: 1.55;
+        }
+        .hero-brand-tagline::after {
+          width: 34px;
+          height: 3px;
+        }
+        .tm-hero-title {
+          max-width: 100%;
+          font-size: clamp(1.8rem, 9vw, 2.5rem) !important;
+          line-height: 1.1;
+          letter-spacing: -0.02em;
+          overflow-wrap: anywhere;
+        }
+        .tm-hero-subtitle {
+          max-width: 100%;
+          font-size: clamp(0.62rem, 2.8vw, 0.76rem) !important;
+          letter-spacing: 0.04em;
+          line-height: 1.4;
+          padding: 0 4px;
+        }
+        .hero-deadline-banner {
+          min-height: 74px;
+          margin-top: clamp(20px, 5vw, 28px);
+          padding: 4px;
+          border-radius: 38px;
+        }
+        .hero-consultation-wrap {
+          margin-top: clamp(48px, 8svh, 72px);
+        }
+        .hero-deadline-icon {
+          flex-basis: 56px;
+          width: 56px;
+          height: 56px;
+          font-size: 1.45rem;
+        }
+        .hero-deadline-copy {
+          padding: 0 8px;
+        }
+        .hero-contact-link {
+          min-height: 54px;
+          gap: 6px;
+          padding: 0 10px;
+          border-width: 1px;
+        }
+        .hero-cta {
+          width: min(100%, 350px);
+          padding: 13px 18px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .tm-hero-text-container-inner {
+          width: calc(100% - 20px);
+        }
+        .hero-brand-name {
+          font-size: clamp(2rem, 9vw, 2.4rem);
+          letter-spacing: -0.04em;
+        }
+        .hero-brand-tagline {
+          gap: 6px;
+          font-size: 0.5rem;
+          letter-spacing: 0.1em;
+        }
+        .hero-brand-tagline::after {
+          width: 24px;
+        }
+        .hero-deadline-banner {
+          width: 100%;
+        }
+        .hero-deadline-icon {
+          flex-basis: 46px;
+          width: 46px;
+          height: 46px;
+          font-size: 1.2rem;
+        }
+        .hero-deadline-copy {
+          padding: 0 5px;
+        }
+        .hero-deadline-copy span {
+          font-size: 0.68rem;
+        }
+        .hero-deadline-copy strong {
+          font-size: 1.15rem;
+        }
+        .hero-contact-link {
+          min-height: 46px;
+          gap: 4px;
+          padding: 0 7px;
+          font-size: 0.67rem;
+        }
       }
 
       /* Scroll indicator */
@@ -1226,24 +1495,32 @@
 
       <div class="text-center tm-hero-text-container">
         <div class="tm-hero-text-container-inner">
-          <h2 class="tm-hero-title">SharpX Accountancy</h2>
-          <p class="tm-hero-subtitle">
-            Digitalized Solutions For A Smarter Tomorrow
-          </p>
-        </div>
-        <div
-          class="tm-next tm-intro-next text-center"
-          style="
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            margin-top: 20px;
-          "
-        >
-          <a href="contactForm.html" class="hero-cta">
-            Book A Free Consultation <i class="fas fa-arrow-right"></i>
+          <div class="hero-brand-lockup" aria-label="SharpX Accountancy. Digitalized solutions for a smarter tomorrow.">
+            <h1 class="hero-brand-name">SharpX Accountancy</h1>
+            <p class="hero-brand-tagline">Digitalized solutions for a smarter tomorrow</p>
+          </div>
+          <a
+            class="hero-deadline-banner"
+            href="Forms.html?tab=selfassessment"
+            aria-label="File your return by 31 January 2027. Contact us today to start your self-assessment."
+          >
+            <span class="hero-deadline-icon" aria-hidden="true">
+              <i class="far fa-calendar-check"></i>
+            </span>
+            <span class="hero-deadline-copy">
+              <span>File your Self-Assessment Return by</span>
+              <strong>31/01/2027</strong>
+            </span>
+            <span class="hero-contact-link">
+              Contact us today <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </span>
           </a>
         </div>
+          <div class="hero-consultation-wrap">
+            <a href="contactForm.html" class="hero-cta">
+              Book A Free Consultation <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
       </div>
 
       <!-- Scroll indicator -->
@@ -1663,18 +1940,6 @@
       })();
 
       $(function () {
-        // Hero Section - Background Parallax
-        background_image_parallax($(".tm-parallax"), 0.3, false);
-
-        // Handle window resize
-        window.addEventListener(
-          "resize",
-          function () {
-            background_image_parallax($(".tm-parallax"), 0.3, true);
-          },
-          true,
-        );
-
         // Detect window scroll and update navbar
         $(window).scroll(function (e) {
           if ($(document).scrollTop() > 120) {

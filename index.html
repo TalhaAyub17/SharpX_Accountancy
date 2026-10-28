@@ -174,7 +174,6 @@
         width: 100%;
         z-index: 1050 !important;
         min-height: 82px;
-        background: #07346f;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         transition:
@@ -228,7 +227,7 @@
       @media (max-width: 991px) {
         .tm-navbar.scroll .navbar-collapse,
         .tm-navbar .navbar-collapse.show {
-          background: var(--sx-blue-navy);
+          background: #10549b;
           border-radius: 0 0 12px 12px;
         }
         .tm-navbar.scroll .tm-nav-link {
@@ -451,44 +450,40 @@
         transform: translateX(4px);
       }
 
-      .hero-deadline-banner {
+      .hero-deadline-group {
         display: flex;
         align-items: center;
-        width: min(100%, 760px);
-        min-height: 92px;
+        width: min(100%, 600px);
         margin: 24px auto 0;
+      }
+      .hero-deadline-banner {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        min-width: 0;
+        min-height: 88px;
         padding: 8px;
         border: 2px solid rgba(178, 224, 255, 0.95);
-        border-radius: 50px;
+        border-radius: 64px;
         background: linear-gradient(135deg, #f8fcff 0%, #dceeff 100%);
         box-shadow: 0 0 0 4px rgba(40, 142, 236, 0.62),
           0 12px 34px rgba(0, 14, 48, 0.4),
           inset 0 2px 5px rgba(255, 255, 255, 0.95);
         color: #123e76;
-        text-decoration: none;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-      }
-      .hero-deadline-banner:hover,
-      .hero-deadline-banner:focus-visible {
-        color: #123e76;
-        text-decoration: none;
-        transform: translateY(-3px);
-        box-shadow: 0 0 0 4px rgba(75, 180, 255, 0.82),
-          0 16px 40px rgba(0, 14, 48, 0.5),
-          inset 0 2px 5px rgba(255, 255, 255, 0.95);
+        text-align: left;
       }
       .hero-deadline-icon {
         display: grid;
-        flex: 0 0 76px;
-        width: 76px;
-        height: 76px;
+        flex: 0 0 70px;
+        width: 70px;
+        height: 70px;
         place-items: center;
         border-radius: 50%;
         background: linear-gradient(145deg, #1d67b9, #063572);
         color: #ffffff;
         box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.72),
           0 3px 10px rgba(8, 39, 90, 0.35);
-        font-size: 2rem;
+        font-size: 1.7rem;
       }
       .hero-deadline-copy {
         display: flex;
@@ -499,12 +494,12 @@
         line-height: 1.08;
       }
       .hero-deadline-copy span {
-        font-size: clamp(0.8rem, 2vw, 1.15rem);
+        font-size: clamp(0.7rem, 1.6vw, 0.95rem);
         font-weight: 700;
       }
       .hero-deadline-copy strong {
         margin-top: 3px;
-        font-size: clamp(1.35rem, 3.5vw, 2.15rem);
+        font-size: clamp(1.15rem, 3vw, 1.75rem);
         font-weight: 800;
         letter-spacing: 0.01em;
       }
@@ -514,24 +509,39 @@
         align-items: center;
         justify-content: center;
         gap: 12px;
-        min-height: 68px;
-        padding: 0 22px;
+        min-height: 64px;
+        position: relative;
+        z-index: 1;
+        margin-left: -28px;
+        padding: 0 20px;
         border: 2px solid rgba(255, 255, 255, 0.72);
         border-radius: 40px;
         background: linear-gradient(145deg, #287bc9, #073a7b);
         color: #ffffff;
-        font-size: clamp(0.76rem, 1.6vw, 1rem);
+        font-size: clamp(0.68rem, 1.4vw, 0.9rem);
         font-weight: 700;
         white-space: nowrap;
+        text-decoration: none;
         box-shadow: inset 0 0 0 2px rgba(117, 196, 255, 0.72),
           0 3px 10px rgba(8, 39, 90, 0.3);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
       }
-      .hero-deadline-banner:hover .hero-contact-link,
-      .hero-deadline-banner:focus-visible .hero-contact-link {
+      .hero-contact-link:hover,
+      .hero-contact-link:focus-visible {
         color: #ffffff;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: inset 0 0 0 2px rgba(117, 196, 255, 0.72),
+          0 8px 20px rgba(8, 39, 90, 0.42);
       }
       .hero-contact-link i {
-        font-size: 1.3em;
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.92);
+        border-radius: 50%;
+        font-size: 1.05em;
       }
       .hero-consultation-wrap {
         display: flex;
@@ -580,9 +590,12 @@
           line-height: 1.4;
           padding: 0 4px;
         }
-        .hero-deadline-banner {
-          min-height: 74px;
+        .hero-deadline-group {
+          width: 100%;
           margin-top: clamp(20px, 5vw, 28px);
+        }
+        .hero-deadline-banner {
+          min-height: 66px;
           padding: 4px;
           border-radius: 38px;
         }
@@ -590,18 +603,32 @@
           margin-top: clamp(48px, 8svh, 72px);
         }
         .hero-deadline-icon {
-          flex-basis: 56px;
-          width: 56px;
-          height: 56px;
-          font-size: 1.45rem;
+          flex-basis: 44px;
+          width: 44px;
+          height: 44px;
+          font-size: 1.1rem;
         }
         .hero-deadline-copy {
+          min-width: 0;
           padding: 0 8px;
         }
+        .hero-deadline-copy span {
+          font-size: clamp(0.62rem, 2.2vw, 0.78rem);
+          line-height: 1.2;
+        }
+        .hero-deadline-copy strong {
+          font-size: clamp(1rem, 4vw, 1.25rem);
+        }
         .hero-contact-link {
-          min-height: 54px;
+          min-height: 48px;
           gap: 6px;
+          margin-left: -18px;
           padding: 0 10px;
+          border-width: 1px;
+        }
+        .hero-contact-link i {
+          width: 30px;
+          height: 30px;
           border-width: 1px;
         }
         .hero-cta {
@@ -626,7 +653,7 @@
         .hero-brand-tagline::after {
           width: 24px;
         }
-        .hero-deadline-banner {
+        .hero-deadline-group {
           width: 100%;
         }
         .hero-deadline-icon {
@@ -639,16 +666,22 @@
           padding: 0 5px;
         }
         .hero-deadline-copy span {
-          font-size: 0.68rem;
+          font-size: 0.62rem;
         }
         .hero-deadline-copy strong {
-          font-size: 1.15rem;
+          font-size: 0.9rem;
         }
         .hero-contact-link {
           min-height: 46px;
           gap: 4px;
-          padding: 0 7px;
-          font-size: 0.67rem;
+          margin-left: -14px;
+          padding: 0 6px;
+          font-size: 0.58rem;
+        }
+        .hero-contact-link i {
+          width: 22px;
+          height: 22px;
+          font-size: 0.9em;
         }
       }
 
@@ -1499,22 +1532,20 @@
             <h1 class="hero-brand-name">SharpX Accountancy</h1>
             <p class="hero-brand-tagline">Digitalized solutions for a smarter tomorrow</p>
           </div>
-          <a
-            class="hero-deadline-banner"
-            href="Forms.html?tab=selfassessment"
-            aria-label="File your return by 31 January 2027. Contact us today to start your self-assessment."
-          >
-            <span class="hero-deadline-icon" aria-hidden="true">
-              <i class="far fa-calendar-check"></i>
-            </span>
-            <span class="hero-deadline-copy">
-              <span>File your Self-Assessment Return by</span>
-              <strong>31/01/2027</strong>
-            </span>
-            <span class="hero-contact-link">
+          <div class="hero-deadline-group">
+            <div class="hero-deadline-banner" role="group" aria-label="Self-assessment filing deadline">
+              <span class="hero-deadline-icon" aria-hidden="true">
+                <i class="far fa-calendar-check"></i>
+              </span>
+              <span class="hero-deadline-copy">
+                <span>File your Self-Assessment Return by</span>
+                <strong>31/01/2027</strong>
+              </span>
+            </div>
+            <a class="hero-contact-link" href="Forms.html?tab=selfassessment">
               Contact us today <i class="fas fa-arrow-right" aria-hidden="true"></i>
-            </span>
-          </a>
+            </a>
+          </div>
         </div>
           <div class="hero-consultation-wrap">
             <a href="contactForm.html" class="hero-cta">
